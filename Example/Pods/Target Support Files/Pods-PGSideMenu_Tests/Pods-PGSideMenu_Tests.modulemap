@@ -1,0 +1,6 @@
+framework module Pods_PGSideMenu_Tests {
+  umbrella header "Pods-PGSideMenu_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

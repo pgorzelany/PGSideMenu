@@ -32,9 +32,9 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'PGSideMenu/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'PGSideMenu' => ['PGSideMenu/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'PGSideMenu' => ['PGSideMenu/Assets/*.{lproj,storyboard}']
+  }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'

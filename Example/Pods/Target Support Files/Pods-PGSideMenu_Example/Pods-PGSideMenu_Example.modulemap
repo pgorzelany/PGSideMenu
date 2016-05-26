@@ -1,0 +1,6 @@
+framework module Pods_PGSideMenu_Example {
+  umbrella header "Pods-PGSideMenu_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

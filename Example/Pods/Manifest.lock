@@ -1,0 +1,16 @@
+PODS:
+  - PGSideMenu (0.1.0)
+
+DEPENDENCIES:
+  - PGSideMenu (from `../`)
+
+EXTERNAL SOURCES:
+  PGSideMenu:
+    :path: ../
+
+SPEC CHECKSUMS:
+  PGSideMenu: b79f797f05aba17764e90481766af2d6f4f41ec2
+
+PODFILE CHECKSUM: 9840e7b67ed4862bce9f8c02f91c126f31e3ce08
+
+COCOAPODS: 1.0.0

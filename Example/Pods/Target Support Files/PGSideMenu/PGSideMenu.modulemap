@@ -1,0 +1,6 @@
+framework module PGSideMenu {
+  umbrella header "PGSideMenu-umbrella.h"
+
+  export *
+  module * { export * }
+}
