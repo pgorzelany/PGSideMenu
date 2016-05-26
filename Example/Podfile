@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PGSideMenu_Example' do
+  pod 'PGSideMenu', :path => '../'
+
+  target 'PGSideMenu_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
