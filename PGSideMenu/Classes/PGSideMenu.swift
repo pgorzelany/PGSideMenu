@@ -66,7 +66,9 @@ public class PGSideMenu: UIViewController {
         
     }
     
-    
+    public var contentController: UIViewController?
+    public var leftMenuController: UIViewController?
+    public var rightMenuController: UIViewController?
     
     // MARK: Initializers
     
@@ -77,22 +79,10 @@ public class PGSideMenu: UIViewController {
     public init() {
         
         let podBundle = NSBundle(forClass: PGSideMenu.self)
-        
         let bundleURL = podBundle.URLForResource("PGSideMenu", withExtension: "bundle")
         let bundle = NSBundle(URL: bundleURL!)!
-        
         super.init(nibName: "PGSideMenu", bundle: bundle)
-        
-    }
-    
-    public static func TestInit() -> PGSideMenu {
-        
-        let podBundle = NSBundle(forClass: PGSideMenu.self)
-        
-        let bundleURL = podBundle.URLForResource("PGSideMenu", withExtension: "bundle")
-        let bundle = NSBundle(URL: bundleURL!)!
-        let storyboard = UIStoryboard(name: "PGSideMenu", bundle: bundle)
-        return storyboard.instantiateViewControllerWithIdentifier("PGSideMenu") as! PGSideMenu
+        let view = self.view
         
     }
     
@@ -261,6 +251,33 @@ public class PGSideMenu: UIViewController {
     public func toggleRightMenu() {
         
         self.toggleMenu(.Right)
+    }
+    
+    public func addContentController(controller: UIViewController) {
+        
+        self.addChildViewController(controller)
+        self.contentContainerView.addSubviewFullscreen(controller.view)
+        self.contentController = controller
+        controller.didMoveToParentViewController(self)
+        
+    }
+    
+    public func addLeftMenuController(controller: UIViewController) {
+        
+        self.addChildViewController(controller)
+        self.leftMenuContainerView.addSubviewFullscreen(controller.view)
+        self.leftMenuController = controller
+        controller.didMoveToParentViewController(self)
+        
+    }
+    
+    public func addRightMenuController(controller: UIViewController) {
+        
+        
+        self.addChildViewController(controller)
+        self.rightMenuContainerView.addSubviewFullscreen(controller.view)
+        self.rightMenuController = controller
+        controller.didMoveToParentViewController(self)
     }
     
     // MARK: Appearance

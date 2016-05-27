@@ -17,11 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        self.window?.makeKeyAndVisible()
-        
-        let sideMenuController = PGSideMenu()
-        self.window?.rootViewController = sideMenuController
+        self.loadExampleAppStructure()
         
         return true
     }
@@ -47,7 +43,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    private func loadExampleAppStructure() {
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.makeKeyAndVisible()
+        
+        let sideMenuController = PGSideMenu()
+        let contentController = ContentController()
+        let leftMenuController = LeftMenuController()
+        let rightMenuController = RightMenuController()
+        sideMenuController.addContentController(contentController)
+        sideMenuController.addLeftMenuController(leftMenuController)
+        sideMenuController.addRightMenuController(rightMenuController)
+        self.window?.rootViewController = sideMenuController
+        
+    }
 
 }
 

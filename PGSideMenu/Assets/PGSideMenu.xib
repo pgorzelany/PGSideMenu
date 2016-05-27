@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PGSideMenu" customModule="PGSideMenu" customModuleProvider="target">
@@ -23,43 +23,21 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKd-fv-Jhf" userLabel="leftMenu">
                     <rect key="frame" x="-240" y="0.0" width="240" height="480"/>
-                    <color key="backgroundColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="uvA-66-ptf"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AfC-i2-bbh" userLabel="rightMenu">
                     <rect key="frame" x="320" y="0.0" width="240" height="480"/>
-                    <color key="backgroundColor" red="0.53333333329999999" green="0.84705882349999995" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="240" id="pzm-EJ-Cc4"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMa-1U-jAa" userLabel="contentView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFj-Yb-pqR">
-                            <rect key="frame" x="8" y="8" width="30" height="30"/>
-                            <state key="normal" title="Left"/>
-                            <connections>
-                                <action selector="leftButtonTouched:" destination="-1" eventType="touchUpInside" id="a2R-fx-ocL"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHz-c4-Vif">
-                            <rect key="frame" x="276" y="8" width="36" height="30"/>
-                            <state key="normal" title="Right"/>
-                            <connections>
-                                <action selector="rightButtonTouched:" destination="-1" eventType="touchUpInside" id="TlP-zW-7x9"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.95686274510000002" green="0.59363134689999997" blue="0.29888714750000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="FFj-Yb-pqR" firstAttribute="top" secondItem="TMa-1U-jAa" secondAttribute="top" constant="8" id="7Me-Es-3nG"/>
-                        <constraint firstAttribute="trailing" secondItem="YHz-c4-Vif" secondAttribute="trailing" constant="8" id="Z1B-ak-bFV"/>
-                        <constraint firstItem="FFj-Yb-pqR" firstAttribute="leading" secondItem="TMa-1U-jAa" secondAttribute="leading" constant="8" id="gg0-eO-pki"/>
-                        <constraint firstItem="YHz-c4-Vif" firstAttribute="top" secondItem="TMa-1U-jAa" secondAttribute="top" constant="8" id="lVn-BR-hec"/>
-                    </constraints>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
