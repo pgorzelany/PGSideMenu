@@ -173,6 +173,7 @@ public class PGSideMenu: UIViewController {
         transform.m34 = 1.0 / -1500;
         transform = CATransform3DRotate(transform, Angle.degreesToRadians(degrees: relative3dAngleTranslation), 0, 1, 0.0);
         transform = CATransform3DTranslate(transform, relative3dXTranslation, 0, 0)
+//        transform = CATransform3DScale(transform, 0, 0.9, 0)
         
         if animated {
             
