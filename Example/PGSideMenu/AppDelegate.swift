@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PGSideMenu
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,13 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
         
+        let sideMenuController = PGSideMenu()
+        self.window?.rootViewController = sideMenuController
         
+        return true
     }
 
     func applicationWillResignActive(application: UIApplication) {

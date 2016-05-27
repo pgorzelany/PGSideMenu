@@ -21,7 +21,7 @@
   "source_files": "PGSideMenu/Classes/**/*",
   "resource_bundles": {
     "PGSideMenu": [
-      "PGSideMenu/Assets/*.{lproj,storyboard}"
+      "PGSideMenu/**/*.{storyboard,xib}"
     ]
   }
 }

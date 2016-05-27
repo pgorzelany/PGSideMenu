@@ -14,16 +14,16 @@ private enum Side {
     
 }
     
-protocol DoorMenuDelegate {
+protocol PGSideMenuDelegate {
     
-    func doorMenuDelegateWillShowLeftMenu(menu: DoorMenuViewController)
-    func doorMenuDelegateWillShowRightMenu(menu: DoorMenuViewController)
-    func doorMenuDelegateWillHideLeftMenu(menu: DoorMenuViewController)
-    func doorMenuDelegateWillHideRightMenu(menu: DoorMenuViewController)
+    func PGSideMenuDelegateWillShowLeftMenu(menu: PGSideMenu)
+    func PGSideMenuDelegateWillShowRightMenu(menu: PGSideMenu)
+    func PGSideMenuDelegateWillHideLeftMenu(menu: PGSideMenu)
+    func PGSideMenuDelegateWillHideRightMenu(menu: PGSideMenu)
     
 }
 
-class DoorMenuViewController: UIViewController {
+public class PGSideMenu: UIViewController {
     
     // MARK: Outlets
     
@@ -38,7 +38,7 @@ class DoorMenuViewController: UIViewController {
     // MARK: Properties
     
     /** The width of the menu container as a percentage of the screen */
-    var menuWidth: CGFloat = 0.8
+    public var menuWidth: CGFloat = 0.8
     
     private var maxAbsoluteContentTranslation: CGFloat {
         return UIScreen.mainScreen().bounds.width * self.menuWidth
@@ -70,9 +70,35 @@ class DoorMenuViewController: UIViewController {
     
     // MARK: Initializers
     
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public init() {
+        
+        let podBundle = NSBundle(forClass: PGSideMenu.self)
+        
+        let bundleURL = podBundle.URLForResource("PGSideMenu", withExtension: "bundle")
+        let bundle = NSBundle(URL: bundleURL!)!
+        
+        super.init(nibName: "PGSideMenu", bundle: bundle)
+        
+    }
+    
+    public static func TestInit() -> PGSideMenu {
+        
+        let podBundle = NSBundle(forClass: PGSideMenu.self)
+        
+        let bundleURL = podBundle.URLForResource("PGSideMenu", withExtension: "bundle")
+        let bundle = NSBundle(URL: bundleURL!)!
+        let storyboard = UIStoryboard(name: "PGSideMenu", bundle: bundle)
+        return storyboard.instantiateViewControllerWithIdentifier("PGSideMenu") as! PGSideMenu
+        
+    }
+    
     // MARK: Lifecycle
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Door Menu"
@@ -226,13 +252,13 @@ class DoorMenuViewController: UIViewController {
         
     }
     
-    func toggleLeftMenu() {
+    public func toggleLeftMenu() {
         
         self.toggleMenu(.Left)
         
     }
     
-    func toggleRightMenu() {
+    public func toggleRightMenu() {
         
         self.toggleMenu(.Right)
     }

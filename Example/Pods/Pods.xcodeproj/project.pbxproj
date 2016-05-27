@@ -14,11 +14,12 @@
 		3C23BC1FD465F1A435DE7AC3CEA5E185 /* Pods-PGSideMenu_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C17AD257752FBC7BBED8E79CF5D273B9 /* Pods-PGSideMenu_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		653C3078C86C38ABF9AD2D81279BD535 /* Pods-PGSideMenu_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C263A793D2B4D9C627E2F8200E05CE /* Pods-PGSideMenu_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70155AFBBB049B954F89F31A5398683D /* Pods-PGSideMenu_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E33921F707F0316EF6141263481D2AA0 /* Pods-PGSideMenu_Example-dummy.m */; };
-		7C1B23A557BFDD0FB39DE2C450AE4A65 /* PGSideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 79895F744AA4AD79440FCB23FE560F9D /* PGSideMenu-dummy.m */; };
+		8F41635F356E410717F96A3A189FE154 /* PGSideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88205584DAEE15965AD71B6620A5941E /* PGSideMenu-dummy.m */; };
 		915421B123DF96957F2A4092CB8FAA7C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
-		9A65E8F5E74834A6E16F9FEF79E1900A /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EFF05E42244F433E1E46A9C13504BD /* Angle.swift */; };
-		D22012AEFAC3F7E24F084496A5672493 /* PGSideMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D071CECCCBCE7419F5411EE866AE396B /* PGSideMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7DBDC8F27FF23BE4E02EEC3F920DA8E /* DoorMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0384A990F825531B0C305218EB1B232E /* DoorMenuViewController.swift */; };
+		9E95E1FF3835814A8ECDDBE218984DB4 /* PGSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45130123F16D0315A2B496660A21855 /* PGSideMenu.swift */; };
+		BD7296D587FDA8AF06B3A2E072F21BCA /* Angle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0CE8E79E162D2AC10903684CB6C568 /* Angle.swift */; };
+		C114F0B14999E34CB13A6D1D96757AE8 /* PGSideMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4FEEA7AEDC8DA87DC425BD33592E004 /* PGSideMenu.xib */; };
+		D22012AEFAC3F7E24F084496A5672493 /* PGSideMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F4350184D7BCBBAD606772214D4918C /* PGSideMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,41 +40,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0384A990F825531B0C305218EB1B232E /* DoorMenuViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DoorMenuViewController.swift; sourceTree = "<group>"; };
 		05A324C07BF81B3F6B3BE2600333EE41 /* Pods-PGSideMenu_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PGSideMenu_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		07C263A793D2B4D9C627E2F8200E05CE /* Pods-PGSideMenu_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PGSideMenu_Tests-umbrella.h"; sourceTree = "<group>"; };
 		27D59A28D190554830229276163928B2 /* Pods-PGSideMenu_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PGSideMenu_Tests-dummy.m"; sourceTree = "<group>"; };
 		28616A3259F530D5B7CED7B71EFE4FF7 /* Pods-PGSideMenu_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGSideMenu_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		2F0CE8E79E162D2AC10903684CB6C568 /* Angle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		30FBC736E27BDA4DC4F55FEF9F9C0AC5 /* Pods-PGSideMenu_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PGSideMenu_Tests.modulemap"; sourceTree = "<group>"; };
-		31B8D53BAE28B13B61B17088982E05FF /* PGSideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PGSideMenu-prefix.pch"; sourceTree = "<group>"; };
 		41E195666B36182D7C0F8209B23DCE00 /* Pods-PGSideMenu_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGSideMenu_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		4338A22703E2B1FE9DE25631E92FEC3E /* Pods-PGSideMenu_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PGSideMenu_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		46F96965EB266E84C3B02466478B459C /* Pods-PGSideMenu_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-PGSideMenu_Example.modulemap"; sourceTree = "<group>"; };
 		470542AA8F7E760F8F393540FB507C70 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BC87104B6296EEDAB657B01F3408EA0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PGSideMenu.xcconfig; sourceTree = "<group>"; };
 		527B5CAEFCCA342094D4E90F23F8426E /* Pods-PGSideMenu_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGSideMenu_Example-frameworks.sh"; sourceTree = "<group>"; };
-		54EFF05E42244F433E1E46A9C13504BD /* Angle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Angle.swift; sourceTree = "<group>"; };
 		5722C46764E9CD7360FFF1AEFCF92D6A /* Pods-PGSideMenu_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGSideMenu_Example-resources.sh"; sourceTree = "<group>"; };
 		5A713CE3822045AA96FE232DA306590B /* Pods-PGSideMenu_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PGSideMenu_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6AA83BFFA1128E2F4B27B73703F02C26 /* Pods-PGSideMenu_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGSideMenu_Tests-resources.sh"; sourceTree = "<group>"; };
 		6EF5871C5C4C74D4067120EC1A0B4710 /* PGSideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PGSideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		79895F744AA4AD79440FCB23FE560F9D /* PGSideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PGSideMenu-dummy.m"; sourceTree = "<group>"; };
+		71F039D50BC07CD91BF3229EE1C54E04 /* PGSideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PGSideMenu.modulemap; sourceTree = "<group>"; };
+		76AA78F4C8594BDEA09409ED2165A88C /* ResourceBundle-PGSideMenu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PGSideMenu-Info.plist"; sourceTree = "<group>"; };
+		7F4350184D7BCBBAD606772214D4918C /* PGSideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PGSideMenu-umbrella.h"; sourceTree = "<group>"; };
 		85E17D125993C0003D4F9AEE1160E595 /* Pods-PGSideMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGSideMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
-		86091C7F74CC5746D9B5E8F60775F9E2 /* PGSideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = PGSideMenu.modulemap; sourceTree = "<group>"; };
+		88205584DAEE15965AD71B6620A5941E /* PGSideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PGSideMenu-dummy.m"; sourceTree = "<group>"; };
+		933883FE28C6CBBE301882C265CFA064 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A4FEEA7AEDC8DA87DC425BD33592E004 /* PGSideMenu.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = PGSideMenu.xib; sourceTree = "<group>"; };
 		B68653069EB5454B868583D60294C5A2 /* Pods-PGSideMenu_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-PGSideMenu_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		C10A9D7123FDE70E15E0BC41FCCC61B7 /* ResourceBundle-PGSideMenu-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-PGSideMenu-Info.plist"; sourceTree = "<group>"; };
 		C17AD257752FBC7BBED8E79CF5D273B9 /* Pods-PGSideMenu_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PGSideMenu_Example-umbrella.h"; sourceTree = "<group>"; };
 		C4D84A14FD3E4640165FE92CA6DC2C09 /* Pods-PGSideMenu_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-PGSideMenu_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4F15E0BF11628462FFFEE1F25C8B06D /* Pods_PGSideMenu_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGSideMenu_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC7D50793239BEEFAF80EBAAF4796FF7 /* PGSideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PGSideMenu.xcconfig; sourceTree = "<group>"; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D071CECCCBCE7419F5411EE866AE396B /* PGSideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PGSideMenu-umbrella.h"; sourceTree = "<group>"; };
 		D113F98FF1F63A3880A07B8485F0113E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E33921F707F0316EF6141263481D2AA0 /* Pods-PGSideMenu_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-PGSideMenu_Example-dummy.m"; sourceTree = "<group>"; };
+		E45130123F16D0315A2B496660A21855 /* PGSideMenu.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PGSideMenu.swift; sourceTree = "<group>"; };
 		E5169E64E00966A844FF79E2D556F9C0 /* Pods_PGSideMenu_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PGSideMenu_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5265FBF20E9B7DAAEC21AD808832CF0 /* PGSideMenu.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PGSideMenu.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDEDFECB9973D863CD30574F7324D962 /* Pods-PGSideMenu_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGSideMenu_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		F7BF8AB42C6E24EE4580F189F9961C52 /* PGSideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PGSideMenu-prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,29 +113,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		22F2805AFED6698F831FC19531715FDF /* Support Files */ = {
+		0C2D0949B229ED87894D658F2BEABEA4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4BC87104B6296EEDAB657B01F3408EA0 /* Info.plist */,
-				86091C7F74CC5746D9B5E8F60775F9E2 /* PGSideMenu.modulemap */,
-				CC7D50793239BEEFAF80EBAAF4796FF7 /* PGSideMenu.xcconfig */,
-				79895F744AA4AD79440FCB23FE560F9D /* PGSideMenu-dummy.m */,
-				31B8D53BAE28B13B61B17088982E05FF /* PGSideMenu-prefix.pch */,
-				D071CECCCBCE7419F5411EE866AE396B /* PGSideMenu-umbrella.h */,
-				C10A9D7123FDE70E15E0BC41FCCC61B7 /* ResourceBundle-PGSideMenu-Info.plist */,
+				2F0CE8E79E162D2AC10903684CB6C568 /* Angle.swift */,
+				E45130123F16D0315A2B496660A21855 /* PGSideMenu.swift */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/PGSideMenu";
-			sourceTree = "<group>";
-		};
-		24BC1C5A8CFE9172E4F5985AB644EBC6 /* PGSideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				58D597BD0088C9A8D9A17A1B1E448672 /* PGSideMenu */,
-				22F2805AFED6698F831FC19531715FDF /* Support Files */,
-			);
-			name = PGSideMenu;
-			path = ../..;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		29A063B53CA689647A72613E0F8FD2CD /* Products */ = {
@@ -145,6 +131,29 @@
 				E5169E64E00966A844FF79E2D556F9C0 /* Pods_PGSideMenu_Tests.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3336EBE4D017B7A55AA1BB93B3797FA1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				933883FE28C6CBBE301882C265CFA064 /* Info.plist */,
+				71F039D50BC07CD91BF3229EE1C54E04 /* PGSideMenu.modulemap */,
+				4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */,
+				88205584DAEE15965AD71B6620A5941E /* PGSideMenu-dummy.m */,
+				F7BF8AB42C6E24EE4580F189F9961C52 /* PGSideMenu-prefix.pch */,
+				7F4350184D7BCBBAD606772214D4918C /* PGSideMenu-umbrella.h */,
+				76AA78F4C8594BDEA09409ED2165A88C /* ResourceBundle-PGSideMenu-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/PGSideMenu";
+			sourceTree = "<group>";
+		};
+		3853BE0EA0FC25E1D69E7AFFCB44C27A /* PGSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0C2D0949B229ED87894D658F2BEABEA4 /* Classes */,
+			);
+			path = PGSideMenu;
 			sourceTree = "<group>";
 		};
 		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
@@ -173,10 +182,10 @@
 			path = "Target Support Files/Pods-PGSideMenu_Example";
 			sourceTree = "<group>";
 		};
-		58D597BD0088C9A8D9A17A1B1E448672 /* PGSideMenu */ = {
+		4E4E91B8E5895730B65DB5C330E53B11 /* PGSideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				81B64F7B3B5C8FFCB2823203AFE64D70 /* Classes */,
+				95E91547936371627259799D65DED455 /* Assets */,
 			);
 			path = PGSideMenu;
 			sourceTree = "<group>";
@@ -208,32 +217,34 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7BD765ED7CF21DA2CA8948C6F452E183 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				24BC1C5A8CFE9172E4F5985AB644EBC6 /* PGSideMenu */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				7BD765ED7CF21DA2CA8948C6F452E183 /* Development Pods */,
+				DAC0C12F00BCA6727FB5AD8C1FAD4F56 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				29A063B53CA689647A72613E0F8FD2CD /* Products */,
 				6710DBBC15FB2E5A58E9907D55B8F946 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		81B64F7B3B5C8FFCB2823203AFE64D70 /* Classes */ = {
+		95E91547936371627259799D65DED455 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				54EFF05E42244F433E1E46A9C13504BD /* Angle.swift */,
-				0384A990F825531B0C305218EB1B232E /* DoorMenuViewController.swift */,
+				A4FEEA7AEDC8DA87DC425BD33592E004 /* PGSideMenu.xib */,
 			);
-			path = Classes;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		9C780158ACC506EDB608CE8E47803623 /* PGSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3853BE0EA0FC25E1D69E7AFFCB44C27A /* PGSideMenu */,
+				D01AE5674C7ABDD4877221BC3007E389 /* Resources */,
+				3336EBE4D017B7A55AA1BB93B3797FA1 /* Support Files */,
+			);
+			name = PGSideMenu;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -242,6 +253,22 @@
 				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D01AE5674C7ABDD4877221BC3007E389 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4E4E91B8E5895730B65DB5C330E53B11 /* PGSideMenu */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DAC0C12F00BCA6727FB5AD8C1FAD4F56 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9C780158ACC506EDB608CE8E47803623 /* PGSideMenu */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +322,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 827924B723E1AAA8E875B6FADFD8BF6C /* Build configuration list for PBXNativeTarget "PGSideMenu" */;
 			buildPhases = (
-				3C63623502BC6D6AC9CEF246B51196FB /* Sources */,
+				A8429A33B3A707A4CD270C254E591B8D /* Sources */,
 				6563397A608603BDA545E44A460B6875 /* Frameworks */,
 				BC0282D2033B461ED8ADCF6716871310 /* Resources */,
 				C259A79892B3F2F8F14D21363CE300C2 /* Headers */,
@@ -334,7 +361,7 @@
 			buildPhases = (
 				D275F235B4B57D1784BDABB3AD256676 /* Sources */,
 				F865A3E47333E4A8E9DC50ABE9D4CEF0 /* Frameworks */,
-				E374C2B43FBBC126A5165BE1B7BDEB0C /* Resources */,
+				B914F1A4636DB69FDD01C9001C021C34 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -375,18 +402,19 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B914F1A4636DB69FDD01C9001C021C34 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C114F0B14999E34CB13A6D1D96757AE8 /* PGSideMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BC0282D2033B461ED8ADCF6716871310 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				35CE610A3240A9654FA48EAE91319418 /* PGSideMenu.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E374C2B43FBBC126A5165BE1B7BDEB0C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,21 +429,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3C63623502BC6D6AC9CEF246B51196FB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9A65E8F5E74834A6E16F9FEF79E1900A /* Angle.swift in Sources */,
-				E7DBDC8F27FF23BE4E02EEC3F920DA8E /* DoorMenuViewController.swift in Sources */,
-				7C1B23A557BFDD0FB39DE2C450AE4A65 /* PGSideMenu-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		59DAEF747CB03018E7FB560E173E9B24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				70155AFBBB049B954F89F31A5398683D /* Pods-PGSideMenu_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A8429A33B3A707A4CD270C254E591B8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD7296D587FDA8AF06B3A2E072F21BCA /* Angle.swift in Sources */,
+				8F41635F356E410717F96A3A189FE154 /* PGSideMenu-dummy.m in Sources */,
+				9E95E1FF3835814A8ECDDBE218984DB4 /* PGSideMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +512,7 @@
 		};
 		509F7071066B7D6A353E120C3DF28A99 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7D50793239BEEFAF80EBAAF4796FF7 /* PGSideMenu.xcconfig */;
+			baseConfigurationReference = 4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -547,7 +575,7 @@
 		};
 		9CD69413F3D1481ABC1BC66A622F950D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7D50793239BEEFAF80EBAAF4796FF7 /* PGSideMenu.xcconfig */;
+			baseConfigurationReference = 4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -685,7 +713,7 @@
 		};
 		E2EFF6B7D68A7B75F8DE85AEA5113CA0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7D50793239BEEFAF80EBAAF4796FF7 /* PGSideMenu.xcconfig */;
+			baseConfigurationReference = 4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PGSideMenu";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -735,7 +763,7 @@
 		};
 		EED312C68EA552CA33AC2EA8C8E782A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC7D50793239BEEFAF80EBAAF4796FF7 /* PGSideMenu.xcconfig */;
+			baseConfigurationReference = 4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/PGSideMenu";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
