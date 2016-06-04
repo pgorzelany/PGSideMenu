@@ -84,7 +84,7 @@ public class PGSideMenu: UIViewController {
         let bundleURL = podBundle.URLForResource("PGSideMenu", withExtension: "bundle")
         let bundle = NSBundle(URL: bundleURL!)!
         super.init(nibName: "PGSideMenu", bundle: bundle)
-        let view = self.view
+        let _ = self.view // used to set all outlets
         
     }
     
