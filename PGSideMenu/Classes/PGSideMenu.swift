@@ -167,8 +167,6 @@ public class PGSideMenu: UIViewController {
         relative3dXTranslation = x > 0 ? -relative3dXTranslation : relative3dXTranslation
         let relative3dScaleTranslation = 1 - (abs(relativeTranslation) * (1 - self.minScaleFactor))
         
-        print("Relative x translation: \(relative3dXTranslation)")
-        
         var transform = CATransform3DIdentity;
         transform = CATransform3DScale(transform, 1, relative3dScaleTranslation, 1)
         transform.m34 = 1.0 / -1500;
