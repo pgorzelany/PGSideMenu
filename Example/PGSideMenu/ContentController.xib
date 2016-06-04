@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContentController" customModule="PGSideMenu_Example" customModuleProvider="target">
@@ -19,30 +18,42 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="content" translatesAutoresizingMaskIntoConstraints="NO" id="vkq-Mv-B1e">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-hZ-N4T">
-                    <rect key="frame" x="16" y="16" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="leftButtonTouched:" destination="-1" eventType="touchUpInside" id="5RL-8T-BD5"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyl-dg-OKZ">
-                    <rect key="frame" x="258" y="16" width="46" height="30"/>
-                    <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="rightButtonTouched:" destination="-1" eventType="touchUpInside" id="3L3-1u-INk"/>
-                    </connections>
-                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDe-tI-KK5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-hZ-N4T">
+                            <rect key="frame" x="16" y="15" width="33" height="33"/>
+                            <state key="normal" image="hamburger-icon"/>
+                            <connections>
+                                <action selector="leftButtonTouched:" destination="-1" eventType="touchUpInside" id="5RL-8T-BD5"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyl-dg-OKZ">
+                            <rect key="frame" x="271" y="15.5" width="33" height="33"/>
+                            <state key="normal" image="hamburger-icon"/>
+                            <connections>
+                                <action selector="rightButtonTouched:" destination="-1" eventType="touchUpInside" id="3L3-1u-INk"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="K6e-hZ-N4T" firstAttribute="centerY" secondItem="aDe-tI-KK5" secondAttribute="centerY" id="7i6-1Z-c9N"/>
+                        <constraint firstItem="fyl-dg-OKZ" firstAttribute="centerY" secondItem="aDe-tI-KK5" secondAttribute="centerY" id="Jy7-yH-Esh"/>
+                        <constraint firstAttribute="height" constant="64" id="LOS-Jt-z7q"/>
+                        <constraint firstAttribute="trailing" secondItem="fyl-dg-OKZ" secondAttribute="trailing" constant="16" id="LP2-s0-WVG"/>
+                        <constraint firstItem="K6e-hZ-N4T" firstAttribute="leading" secondItem="aDe-tI-KK5" secondAttribute="leading" constant="16" id="MKN-Xw-vpL"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="K6e-hZ-N4T" firstAttribute="leading" secondItem="2di-ac-dzr" secondAttribute="leadingMargin" constant="8" id="Ov5-9M-ruv"/>
+                <constraint firstItem="aDe-tI-KK5" firstAttribute="leading" secondItem="2di-ac-dzr" secondAttribute="leading" id="4yQ-nt-ZmH"/>
+                <constraint firstAttribute="trailing" secondItem="aDe-tI-KK5" secondAttribute="trailing" id="NMz-Ix-QI1"/>
                 <constraint firstAttribute="trailing" secondItem="vkq-Mv-B1e" secondAttribute="trailing" id="Xc6-VH-JtA"/>
-                <constraint firstItem="fyl-dg-OKZ" firstAttribute="top" secondItem="2di-ac-dzr" secondAttribute="topMargin" constant="8" id="ZdT-iu-9mP"/>
+                <constraint firstItem="aDe-tI-KK5" firstAttribute="top" secondItem="2di-ac-dzr" secondAttribute="top" id="Xex-ke-jVN"/>
                 <constraint firstItem="vkq-Mv-B1e" firstAttribute="leading" secondItem="2di-ac-dzr" secondAttribute="leading" id="ahO-eF-MdG"/>
                 <constraint firstAttribute="bottom" secondItem="vkq-Mv-B1e" secondAttribute="bottom" id="eEc-Jo-hCT"/>
-                <constraint firstItem="K6e-hZ-N4T" firstAttribute="top" secondItem="2di-ac-dzr" secondAttribute="topMargin" constant="8" id="eK1-SP-FiM"/>
-                <constraint firstItem="fyl-dg-OKZ" firstAttribute="trailing" secondItem="2di-ac-dzr" secondAttribute="trailingMargin" constant="-8" id="o4u-Vm-wN4"/>
                 <constraint firstItem="vkq-Mv-B1e" firstAttribute="top" secondItem="2di-ac-dzr" secondAttribute="top" id="q1r-Mr-A2k"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -50,5 +61,6 @@
     </objects>
     <resources>
         <image name="content" width="484" height="861"/>
+        <image name="hamburger-icon" width="33" height="33"/>
     </resources>
 </document>

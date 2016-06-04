@@ -50,6 +50,8 @@ public class PGSideMenu: UIViewController {
     /** Content translation at the beggining of the pan gesture */
     private var initialContentTranslation: CGFloat = 0
     
+    private let minScaleFactor: CGFloat = 0.8
+    
     private var animating = false
     
     private let animationDuration: NSTimeInterval = 0.5
@@ -159,18 +161,16 @@ public class PGSideMenu: UIViewController {
         
         // 3d transforms
         
-        print("Content bounds width: \(self.contentContainerView.bounds.size.width)")
-        print("Content frame width: \(self.contentContainerView.frame.size.width)")
-        
         let relative3dAngleTranslation: CGFloat = -(self.menuTilt * relativeTranslation)
         let contentContainerViewWidthAfterTranslation = self.contentContainerView.bounds.size.width * cos(Angle.degreesToRadians(degrees: relative3dAngleTranslation))
         var relative3dXTranslation: CGFloat =  self.contentContainerView.bounds.size.width - contentContainerViewWidthAfterTranslation
         relative3dXTranslation = x > 0 ? -relative3dXTranslation : relative3dXTranslation
+        let relative3dScaleTranslation = 1 - (abs(relativeTranslation) * (1 - self.minScaleFactor))
         
         print("Relative x translation: \(relative3dXTranslation)")
         
         var transform = CATransform3DIdentity;
-        transform = CATransform3DScale(transform, 1, 0.8, 1)
+        transform = CATransform3DScale(transform, 1, relative3dScaleTranslation, 1)
         transform.m34 = 1.0 / -1500;
         transform = CATransform3DRotate(transform, Angle.degreesToRadians(degrees: relative3dAngleTranslation), 0, 1, 0.0);
         transform = CATransform3DTranslate(transform, relative3dXTranslation, 0, 0)
