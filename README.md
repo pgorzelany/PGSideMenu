@@ -19,7 +19,7 @@ pod "PGSideMenu"
 
 ### Example Usage
 
-![](https://media.giphy.com/media/3oEjHKxRGsC1BeBplK/giphy.gif)
+![](http://i.giphy.com/3oD3YmQTMADfYEQb4Y.gif)
 
 See the example project or example code below.
 
