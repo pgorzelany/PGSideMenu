@@ -1,6 +1,5 @@
 # PGSideMenu
 
-[![CI Status](http://img.shields.io/travis/pgorzelany/PGSideMenu.svg?style=flat)](https://travis-ci.org/pgorzelany/PGSideMenu)
 [![Version](https://img.shields.io/cocoapods/v/PGSideMenu.svg?style=flat)](http://cocoapods.org/pods/PGSideMenu)
 [![License](https://img.shields.io/cocoapods/l/PGSideMenu.svg?style=flat)](http://cocoapods.org/pods/PGSideMenu)
 [![Platform](https://img.shields.io/cocoapods/p/PGSideMenu.svg?style=flat)](http://cocoapods.org/pods/PGSideMenu)
