@@ -8,8 +8,6 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## Requirements
-
 ## Installation
 
 PGSideMenu is available through [CocoaPods](http://cocoapods.org). To install
@@ -17,6 +15,23 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "PGSideMenu"
+```
+
+### Example Usage
+
+![](https://media.giphy.com/media/3oEjHKxRGsC1BeBplK/giphy.gif)
+
+See the example project or example code below.
+
+```
+let sideMenuController = PGSideMenu()
+let contentController = ContentController()
+let leftMenuController = LeftMenuController()
+let rightMenuController = RightMenuController()
+sideMenuController.addContentController(contentController)
+sideMenuController.addLeftMenuController(leftMenuController)
+sideMenuController.addRightMenuController(rightMenuController)
+self.window?.rootViewController = sideMenuController
 ```
 
 ## Author
