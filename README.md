@@ -26,3 +26,7 @@ pgorzelany, piotr.gorzelany@gmail.com
 ## License
 
 PGSideMenu is available under the MIT license. See the LICENSE file for more info.
+
+## Acknowledgements
+
+Designed taken from: https://www.invisionapp.com/do/sketchappsources
