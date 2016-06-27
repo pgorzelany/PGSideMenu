@@ -35,10 +35,12 @@ public class PGSideMenu: UIViewController {
     @IBOutlet weak var leftMenuWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightMenuWidthConstraint: NSLayoutConstraint!
     
-    // MARK: Properties
+    // MARK: Public Properties
     
     /** The width of the menu container as a percentage of the screen */
     public var menuWidth: CGFloat = 0.8
+    
+    // MARK: Private properties
     
     private var maxAbsoluteContentTranslation: CGFloat {
         return UIScreen.mainScreen().bounds.width * self.menuWidth
@@ -54,7 +56,7 @@ public class PGSideMenu: UIViewController {
     
     private var animating = false
     
-    private let animationDuration: NSTimeInterval = 0.5
+    private let animationDuration: NSTimeInterval = 0.4
     
     private var isLeftMenuShown: Bool {
         
@@ -153,7 +155,12 @@ public class PGSideMenu: UIViewController {
     /** The absolute translation to make on the content view */
     private func translateContentView(inXDimension x: CGFloat, animated: Bool = false) {
         
+        print(x)
+        
+        // Do not translate if the translation is at the maximum
         guard abs(x) <= self.maxAbsoluteContentTranslation else {return}
+        
+        // Do not translate, if there is no menu
         
         let relativeTranslation = x / maxAbsoluteContentTranslation
         
@@ -192,7 +199,7 @@ public class PGSideMenu: UIViewController {
     
     private func handlePanGestureEnd() {
         
-        if abs(self.contentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 3.0 {
+        if abs(self.contentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 2.0 {
             
             // Almost opened
             
