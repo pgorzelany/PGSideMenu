@@ -40,6 +40,18 @@ public class PGSideMenu: UIViewController {
     /** The width of the menu container as a percentage of the screen */
     public var menuWidth: CGFloat = 0.8
     
+    /** The scale factor for the content view when menu is shown */
+    public var contentScaleFactor: CGFloat = 0.9
+    
+    /** Duration of the menu opening animation */
+    public var menuAnimationDuration: NSTimeInterval = 0.4
+    
+    public var menuAnimationOptions: UIViewAnimationOptions = .CurveEaseOut
+    
+    public var contentController: UIViewController?
+    public var leftMenuController: UIViewController?
+    public var rightMenuController: UIViewController?
+    
     // MARK: Private properties
     
     private var maxAbsoluteContentTranslation: CGFloat {
@@ -52,11 +64,7 @@ public class PGSideMenu: UIViewController {
     /** Content translation at the beggining of the pan gesture */
     private var initialContentTranslation: CGFloat = 0
     
-    private let minScaleFactor: CGFloat = 0.8
-    
     private var animating = false
-    
-    private let animationDuration: NSTimeInterval = 0.4
     
     private var isLeftMenuShown: Bool {
         
@@ -69,10 +77,6 @@ public class PGSideMenu: UIViewController {
         return self.contentViewCenterConstraint.constant == -self.maxAbsoluteContentTranslation
         
     }
-    
-    public var contentController: UIViewController?
-    public var leftMenuController: UIViewController?
-    public var rightMenuController: UIViewController?
     
     // MARK: Initializers
     
@@ -154,13 +158,20 @@ public class PGSideMenu: UIViewController {
     
     /** The absolute translation to make on the content view */
     private func translateContentView(inXDimension x: CGFloat, animated: Bool = false) {
-        
-        print(x)
-        
+
         // Do not translate if the translation is at the maximum
         guard abs(x) <= self.maxAbsoluteContentTranslation else {return}
         
         // Do not translate, if there is no menu
+        if x > 0 && self.leftMenuController == nil {
+            self.hideMenu(animated: false)
+            return
+        }
+        
+        if x < 0 && self.rightMenuController == nil {
+            self.hideMenu(animated: false)
+            return
+        }
         
         let relativeTranslation = x / maxAbsoluteContentTranslation
         
@@ -172,7 +183,7 @@ public class PGSideMenu: UIViewController {
         let contentContainerViewWidthAfterTranslation = self.contentContainerView.bounds.size.width * cos(Angle.degreesToRadians(degrees: relative3dAngleTranslation))
         var relative3dXTranslation: CGFloat =  self.contentContainerView.bounds.size.width - contentContainerViewWidthAfterTranslation
         relative3dXTranslation = x > 0 ? -relative3dXTranslation : relative3dXTranslation
-        let relative3dScaleTranslation = 1 - (abs(relativeTranslation) * (1 - self.minScaleFactor))
+        let relative3dScaleTranslation = 1 - (abs(relativeTranslation) * (1 - self.contentScaleFactor))
         
         var transform = CATransform3DIdentity;
         transform = CATransform3DScale(transform, 1, relative3dScaleTranslation, 1)
@@ -182,12 +193,12 @@ public class PGSideMenu: UIViewController {
         
         if animated {
             
-            UIView.animateWithDuration(self.animationDuration, animations: { 
+            UIView.animateWithDuration(self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
                 
                 self.contentContainerView.layer.transform = transform;
                 self.view.layoutSubviews()
                 
-            })
+                }, completion: nil)
             
         } else {
             
@@ -222,11 +233,20 @@ public class PGSideMenu: UIViewController {
         
     }
     
-    private func hideMenu() {
+    private func hideMenu(animated animated: Bool = true) {
         
         self.contentViewCenterConstraint.constant = 0
         
-        UIView.animateWithDuration(self.animationDuration) { 
+        if animated {
+            
+            UIView.animateWithDuration(self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
+                
+                self.contentContainerView.layer.transform = CATransform3DIdentity
+                self.view.layoutSubviews()
+                
+            }, completion: nil)
+            
+        } else {
             
             self.contentContainerView.layer.transform = CATransform3DIdentity
             self.view.layoutSubviews()
