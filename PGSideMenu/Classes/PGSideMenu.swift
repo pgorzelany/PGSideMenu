@@ -37,6 +37,15 @@ public class PGSideMenu: UIViewController {
     
     // MARK: Public Properties
     
+    /** The current content controller */
+    public var contentController: UIViewController?
+    
+    /** Left menu controller */
+    public var leftMenuController: UIViewController?
+    
+    /** Right menu controller */
+    public var rightMenuController: UIViewController?
+    
     /** The width of the menu container as a percentage of the screen. Min is 0,  max is 1. */
     public var menuPercentWidth: CGFloat = 0.8 {
         didSet {
@@ -59,14 +68,8 @@ public class PGSideMenu: UIViewController {
     /** Animation options for menu open animation */
     public var menuAnimationOptions: UIViewAnimationOptions = .CurveEaseOut
     
-    /** The current content controller */
-    public var contentController: UIViewController?
-    
-    /** Left menu controller */
-    public var leftMenuController: UIViewController?
-    
-    /** Right menu controller */
-    public var rightMenuController: UIViewController?
+    /** If this property is set to true, whenever a menu is shown a transparent overlay view is added to the content view so there is no user interaction with the content. If the user touches the content, the menu will hide and the overlay will be removed. Defaults to true */
+    public var hideMenuOnContentTap: Bool = true
     
     // MARK: Private properties
     
@@ -93,6 +96,14 @@ public class PGSideMenu: UIViewController {
         return self.contentViewCenterConstraint.constant == -self.maxAbsoluteContentTranslation
         
     }
+    
+    private lazy var contentOverlayView: UIView = {
+        let overlayView = UIView()
+        overlayView.backgroundColor = UIColor.clearColor()
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(overlayTouched))
+        overlayView.addGestureRecognizer(tapRecognizer)
+        return overlayView
+    }()
     
     // MARK: Initializers
     
@@ -168,6 +179,10 @@ public class PGSideMenu: UIViewController {
     /** Hides whatever menu is shown. */
     public func hideMenu(animated animated: Bool = true) {
         
+        guard self.contentViewCenterConstraint.constant != 0 else {return}
+        
+        self.contentOverlayView.removeFromSuperview()
+        
         self.contentViewCenterConstraint.constant = 0
         
         if animated {
@@ -197,6 +212,17 @@ public class PGSideMenu: UIViewController {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.view.addGestureRecognizer(panGestureRecognizer)
         
+    }
+    
+    func overlayTouched(recognizer: UITapGestureRecognizer) {
+        self.hideMenu()
+    }
+    
+    private func addContentOverlay() {
+        
+        if self.contentOverlayView.superview == nil && self.hideMenuOnContentTap {
+            self.contentController?.view.addSubviewFullscreen(self.contentOverlayView)
+        }
     }
     
     func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
@@ -241,6 +267,9 @@ public class PGSideMenu: UIViewController {
             self.hideMenu(animated: false)
             return
         }
+        
+        // Add overlay
+        self.addContentOverlay()
         
         let relativeTranslation = x / maxAbsoluteContentTranslation
         
