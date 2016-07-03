@@ -37,25 +37,41 @@ public class PGSideMenu: UIViewController {
     
     // MARK: Public Properties
     
-    /** The width of the menu container as a percentage of the screen */
-    public var menuWidth: CGFloat = 0.8
+    /** The width of the menu container as a percentage of the screen. Min is 0,  max is 1. */
+    public var menuPercentWidth: CGFloat = 0.8 {
+        didSet {
+            menuPercentWidth = min(1, menuPercentWidth)
+            menuPercentWidth = max(0, menuPercentWidth)
+        }
+    }
     
-    /** The scale factor for the content view when menu is shown */
-    public var contentScaleFactor: CGFloat = 0.9
+    /** The scale factor for the content view when menu is shown. Min is 0, max is 1. */
+    public var contentScaleFactor: CGFloat = 0.9 {
+        didSet {
+            contentScaleFactor = min(1, contentScaleFactor)
+            contentScaleFactor = max(0, contentScaleFactor)
+        }
+    }
     
     /** Duration of the menu opening animation */
     public var menuAnimationDuration: NSTimeInterval = 0.4
     
+    /** Animation options for menu open animation */
     public var menuAnimationOptions: UIViewAnimationOptions = .CurveEaseOut
     
+    /** The current content controller */
     public var contentController: UIViewController?
+    
+    /** Left menu controller */
     public var leftMenuController: UIViewController?
+    
+    /** Right menu controller */
     public var rightMenuController: UIViewController?
     
     // MARK: Private properties
     
     private var maxAbsoluteContentTranslation: CGFloat {
-        return UIScreen.mainScreen().bounds.width * self.menuWidth
+        return UIScreen.mainScreen().bounds.width * self.menuPercentWidth
     }
     
     /** The maximum angle (in degrees) the door menu can open */
@@ -99,27 +115,80 @@ public class PGSideMenu: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Door Menu"
         self.configureController()
         self.addShadowToContentView()
         
     }
     
-    // MARK: Actions
+    // MARK: Public methods
     
-    @IBAction func leftButtonTouched(sender: UIButton) {
+    /** Sets the content controller */
+    public func addContentController(controller: UIViewController) {
         
-        self.toggleLeftMenu()
+        self.addChildViewController(controller)
+        self.contentContainerView.addSubviewFullscreen(controller.view)
+        self.contentController = controller
+        controller.didMoveToParentViewController(self)
         
     }
     
-    @IBAction func rightButtonTouched(sender: UIButton) {
+    /** Sets the left menu controller. You can retrieve this controller later using the leftMenuController property */
+    public func addLeftMenuController(controller: UIViewController) {
         
-        self.toggleRightMenu()
+        self.addChildViewController(controller)
+        self.leftMenuContainerView.addSubviewFullscreen(controller.view)
+        self.leftMenuController = controller
+        controller.didMoveToParentViewController(self)
         
     }
     
-    // MARK: Support
+    /** Sets the right menu controller. You can retrieve this controller later using the rightMenuController property */
+    public func addRightMenuController(controller: UIViewController) {
+        
+        
+        self.addChildViewController(controller)
+        self.rightMenuContainerView.addSubviewFullscreen(controller.view)
+        self.rightMenuController = controller
+        controller.didMoveToParentViewController(self)
+    }
+    
+    /** Open/close left menu depending on menu state. */
+    public func toggleLeftMenu() {
+        
+        self.toggleMenu(.Left)
+        
+    }
+    
+    /** Open/close right menu depending on menu state. */
+    public func toggleRightMenu() {
+        
+        self.toggleMenu(.Right)
+    }
+    
+    /** Hides whatever menu is shown. */
+    public func hideMenu(animated animated: Bool = true) {
+        
+        self.contentViewCenterConstraint.constant = 0
+        
+        if animated {
+            
+            UIView.animateWithDuration(self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
+                
+                self.contentContainerView.layer.transform = CATransform3DIdentity
+                self.view.layoutSubviews()
+                
+                }, completion: nil)
+            
+        } else {
+            
+            self.contentContainerView.layer.transform = CATransform3DIdentity
+            self.view.layoutSubviews()
+            
+        }
+        
+    }
+    
+    // MARK: Private methods
     
     private func configureController(){
         
@@ -233,28 +302,6 @@ public class PGSideMenu: UIViewController {
         
     }
     
-    private func hideMenu(animated animated: Bool = true) {
-        
-        self.contentViewCenterConstraint.constant = 0
-        
-        if animated {
-            
-            UIView.animateWithDuration(self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
-                
-                self.contentContainerView.layer.transform = CATransform3DIdentity
-                self.view.layoutSubviews()
-                
-            }, completion: nil)
-            
-        } else {
-            
-            self.contentContainerView.layer.transform = CATransform3DIdentity
-            self.view.layoutSubviews()
-            
-        }
-        
-    }
-    
     private func toggleMenu(side: Side) {
         
         if self.isLeftMenuShown || self.isRightMenuShown {
@@ -266,44 +313,6 @@ public class PGSideMenu: UIViewController {
             self.showMenu(side)
         }
         
-    }
-    
-    public func toggleLeftMenu() {
-        
-        self.toggleMenu(.Left)
-        
-    }
-    
-    public func toggleRightMenu() {
-        
-        self.toggleMenu(.Right)
-    }
-    
-    public func addContentController(controller: UIViewController) {
-        
-        self.addChildViewController(controller)
-        self.contentContainerView.addSubviewFullscreen(controller.view)
-        self.contentController = controller
-        controller.didMoveToParentViewController(self)
-        
-    }
-    
-    public func addLeftMenuController(controller: UIViewController) {
-        
-        self.addChildViewController(controller)
-        self.leftMenuContainerView.addSubviewFullscreen(controller.view)
-        self.leftMenuController = controller
-        controller.didMoveToParentViewController(self)
-        
-    }
-    
-    public func addRightMenuController(controller: UIViewController) {
-        
-        
-        self.addChildViewController(controller)
-        self.rightMenuContainerView.addSubviewFullscreen(controller.view)
-        self.rightMenuController = controller
-        controller.didMoveToParentViewController(self)
     }
     
     // MARK: Appearance
