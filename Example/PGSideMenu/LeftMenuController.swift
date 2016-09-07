@@ -20,7 +20,7 @@ class LeftMenuController: UIViewController {
     
     init() {
         
-        super.init(nibName: "LeftMenuController", bundle: NSBundle.mainBundle())
+        super.init(nibName: "LeftMenuController", bundle: Bundle.main)
         
     }
     

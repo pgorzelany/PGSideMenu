@@ -20,7 +20,7 @@ class ExampleViewController: UIViewController {
     
     init() {
         
-        super.init(nibName: "ExampleController", bundle: NSBundle.mainBundle())
+        super.init(nibName: "ExampleController", bundle: Bundle.main)
         
     }
     
@@ -39,13 +39,13 @@ class ExampleViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func rightButtonTouched(sender: UIButton) {
+    @IBAction func rightButtonTouched(_ sender: UIButton) {
         
         
         
     }
     
-    @IBAction func leftButtonTouched(sender: UIButton) {
+    @IBAction func leftButtonTouched(_ sender: UIButton) {
         
         
         

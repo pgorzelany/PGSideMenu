@@ -11,13 +11,13 @@ import UIKit
 
 final class Angle {
     
-    static func radiansToDegrees(radians radians: CGFloat) -> CGFloat {
+    static func radiansToDegrees(radians: CGFloat) -> CGFloat {
         
         return radians * CGFloat(180) / CGFloat(M_PI)
         
     }
     
-    static func degreesToRadians(degrees degrees: CGFloat) -> CGFloat {
+    static func degreesToRadians(degrees: CGFloat) -> CGFloat {
         
         return degrees * CGFloat(M_PI) / CGFloat(180)
         

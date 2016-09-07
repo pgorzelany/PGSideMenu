@@ -10,20 +10,20 @@ import UIKit
 
 private enum Side {
     
-    case Left, Right
+    case left, right
     
 }
     
 protocol PGSideMenuDelegate {
     
-    func PGSideMenuDelegateWillShowLeftMenu(menu: PGSideMenu)
-    func PGSideMenuDelegateWillShowRightMenu(menu: PGSideMenu)
-    func PGSideMenuDelegateWillHideLeftMenu(menu: PGSideMenu)
-    func PGSideMenuDelegateWillHideRightMenu(menu: PGSideMenu)
+    func PGSideMenuDelegateWillShowLeftMenu(_ menu: PGSideMenu)
+    func PGSideMenuDelegateWillShowRightMenu(_ menu: PGSideMenu)
+    func PGSideMenuDelegateWillHideLeftMenu(_ menu: PGSideMenu)
+    func PGSideMenuDelegateWillHideRightMenu(_ menu: PGSideMenu)
     
 }
 
-public class PGSideMenu: UIViewController {
+open class PGSideMenu: UIViewController {
     
     // MARK: Outlets
     
@@ -38,16 +38,16 @@ public class PGSideMenu: UIViewController {
     // MARK: Public Properties
     
     /** The current content controller */
-    public var contentController: UIViewController?
+    open var contentController: UIViewController?
     
     /** Left menu controller */
-    public var leftMenuController: UIViewController?
+    open var leftMenuController: UIViewController?
     
     /** Right menu controller */
-    public var rightMenuController: UIViewController?
+    open var rightMenuController: UIViewController?
     
     /** The width of the menu container as a percentage of the screen. Min is 0,  max is 1. */
-    public var menuPercentWidth: CGFloat = 0.8 {
+    open var menuPercentWidth: CGFloat = 0.8 {
         didSet {
             menuPercentWidth = min(1, menuPercentWidth)
             menuPercentWidth = max(0, menuPercentWidth)
@@ -55,7 +55,7 @@ public class PGSideMenu: UIViewController {
     }
     
     /** The scale factor for the content view when menu is shown. Min is 0, max is 1. */
-    public var contentScaleFactor: CGFloat = 0.9 {
+    open var contentScaleFactor: CGFloat = 0.9 {
         didSet {
             contentScaleFactor = min(1, contentScaleFactor)
             contentScaleFactor = max(0, contentScaleFactor)
@@ -63,43 +63,43 @@ public class PGSideMenu: UIViewController {
     }
     
     /** Duration of the menu opening animation */
-    public var menuAnimationDuration: NSTimeInterval = 0.4
+    open var menuAnimationDuration: TimeInterval = 0.4
     
     /** Animation options for menu open animation */
-    public var menuAnimationOptions: UIViewAnimationOptions = .CurveEaseOut
+    open var menuAnimationOptions: UIViewAnimationOptions = .curveEaseOut
     
     /** If this property is set to true, whenever a menu is shown a transparent overlay view is added to the content view so there is no user interaction with the content. If the user touches the content, the menu will hide and the overlay will be removed. Defaults to true */
-    public var hideMenuOnContentTap: Bool = true
+    open var hideMenuOnContentTap: Bool = true
     
     // MARK: Private properties
     
-    private var maxAbsoluteContentTranslation: CGFloat {
-        return UIScreen.mainScreen().bounds.width * self.menuPercentWidth
+    fileprivate var maxAbsoluteContentTranslation: CGFloat {
+        return UIScreen.main.bounds.width * self.menuPercentWidth
     }
     
     /** The maximum angle (in degrees) the door menu can open */
-    private let menuTilt: CGFloat = 45
+    fileprivate let menuTilt: CGFloat = 45
     
     /** Content translation at the beggining of the pan gesture */
-    private var initialContentTranslation: CGFloat = 0
+    fileprivate var initialContentTranslation: CGFloat = 0
     
-    private var animating = false
+    fileprivate var animating = false
     
-    private var isLeftMenuShown: Bool {
+    fileprivate var isLeftMenuShown: Bool {
         
         return self.contentViewCenterConstraint.constant == self.maxAbsoluteContentTranslation
         
     }
     
-    private var isRightMenuShown: Bool {
+    fileprivate var isRightMenuShown: Bool {
         
         return self.contentViewCenterConstraint.constant == -self.maxAbsoluteContentTranslation
         
     }
     
-    private lazy var contentOverlayView: UIView = {
+    fileprivate lazy var contentOverlayView: UIView = {
         let overlayView = UIView()
-        overlayView.backgroundColor = UIColor.clearColor()
+        overlayView.backgroundColor = UIColor.clear
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(overlayTouched))
         overlayView.addGestureRecognizer(tapRecognizer)
         return overlayView
@@ -113,9 +113,9 @@ public class PGSideMenu: UIViewController {
     
     public init() {
         
-        let podBundle = NSBundle(forClass: PGSideMenu.self)
-        let bundleURL = podBundle.URLForResource("PGSideMenu", withExtension: "bundle")
-        let bundle = NSBundle(URL: bundleURL!)!
+        let podBundle = Bundle(for: PGSideMenu.self)
+        let bundleURL = podBundle.url(forResource: "PGSideMenu", withExtension: "bundle")
+        let bundle = Bundle(url: bundleURL!)!
         super.init(nibName: "PGSideMenu", bundle: bundle)
         let _ = self.view // used to set all outlets
         
@@ -123,7 +123,7 @@ public class PGSideMenu: UIViewController {
     
     // MARK: Lifecycle
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         self.configureController()
@@ -134,50 +134,50 @@ public class PGSideMenu: UIViewController {
     // MARK: Public methods
     
     /** Sets the content controller */
-    public func addContentController(controller: UIViewController) {
+    open func addContentController(_ controller: UIViewController) {
         
         self.addChildViewController(controller)
         self.contentContainerView.addSubviewFullscreen(controller.view)
         self.contentController = controller
-        controller.didMoveToParentViewController(self)
+        controller.didMove(toParentViewController: self)
         
     }
     
     /** Sets the left menu controller. You can retrieve this controller later using the leftMenuController property */
-    public func addLeftMenuController(controller: UIViewController) {
+    open func addLeftMenuController(_ controller: UIViewController) {
         
         self.addChildViewController(controller)
         self.leftMenuContainerView.addSubviewFullscreen(controller.view)
         self.leftMenuController = controller
-        controller.didMoveToParentViewController(self)
+        controller.didMove(toParentViewController: self)
         
     }
     
     /** Sets the right menu controller. You can retrieve this controller later using the rightMenuController property */
-    public func addRightMenuController(controller: UIViewController) {
+    open func addRightMenuController(_ controller: UIViewController) {
         
         
         self.addChildViewController(controller)
         self.rightMenuContainerView.addSubviewFullscreen(controller.view)
         self.rightMenuController = controller
-        controller.didMoveToParentViewController(self)
+        controller.didMove(toParentViewController: self)
     }
     
     /** Open/close left menu depending on menu state. */
-    public func toggleLeftMenu() {
+    open func toggleLeftMenu() {
         
-        self.toggleMenu(.Left)
+        self.toggleMenu(.left)
         
     }
     
     /** Open/close right menu depending on menu state. */
-    public func toggleRightMenu() {
+    open func toggleRightMenu() {
         
-        self.toggleMenu(.Right)
+        self.toggleMenu(.right)
     }
     
     /** Hides whatever menu is shown. */
-    public func hideMenu(animated animated: Bool = true) {
+    open func hideMenu(animated: Bool = true) {
         
         guard self.contentViewCenterConstraint.constant != 0 else {return}
         
@@ -187,7 +187,7 @@ public class PGSideMenu: UIViewController {
         
         if animated {
             
-            UIView.animateWithDuration(self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
+            UIView.animate(withDuration: self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
                 
                 self.contentContainerView.layer.transform = CATransform3DIdentity
                 self.view.layoutSubviews()
@@ -205,7 +205,7 @@ public class PGSideMenu: UIViewController {
     
     // MARK: Private methods
     
-    private func configureController(){
+    fileprivate func configureController(){
         
         self.leftMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
         self.rightMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
@@ -214,32 +214,32 @@ public class PGSideMenu: UIViewController {
         
     }
     
-    func overlayTouched(recognizer: UITapGestureRecognizer) {
+    func overlayTouched(_ recognizer: UITapGestureRecognizer) {
         self.hideMenu()
     }
     
-    private func addContentOverlay() {
+    fileprivate func addContentOverlay() {
         
         if self.contentOverlayView.superview == nil && self.hideMenuOnContentTap {
             self.contentController?.view.addSubviewFullscreen(self.contentOverlayView)
         }
     }
     
-    func panGestureRecognized(recognizer: UIPanGestureRecognizer) {
+    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
-        let translation = recognizer.translationInView(self.view)
+        let translation = recognizer.translation(in: self.view)
         
         switch recognizer.state {
             
-        case .Began:
+        case .began:
             
             self.initialContentTranslation = self.contentViewCenterConstraint.constant
             
-        case .Changed:
+        case .changed:
             
             self.translateContentView(inXDimension: translation.x + self.initialContentTranslation)
             
-        case .Ended:
+        case .ended:
             
             self.handlePanGestureEnd()
             
@@ -252,7 +252,7 @@ public class PGSideMenu: UIViewController {
     }
     
     /** The absolute translation to make on the content view */
-    private func translateContentView(inXDimension x: CGFloat, animated: Bool = false) {
+    fileprivate func translateContentView(inXDimension x: CGFloat, animated: Bool = false) {
 
         // Do not translate if the translation is at the maximum
         guard abs(x) <= self.maxAbsoluteContentTranslation else {return}
@@ -291,7 +291,7 @@ public class PGSideMenu: UIViewController {
         
         if animated {
             
-            UIView.animateWithDuration(self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
+            UIView.animate(withDuration: self.menuAnimationDuration, delay: 0, options: self.menuAnimationOptions, animations: {
                 
                 self.contentContainerView.layer.transform = transform;
                 self.view.layoutSubviews()
@@ -306,13 +306,13 @@ public class PGSideMenu: UIViewController {
 
     }
     
-    private func handlePanGestureEnd() {
+    fileprivate func handlePanGestureEnd() {
         
         if abs(self.contentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 2.0 {
             
             // Almost opened
             
-            self.contentViewCenterConstraint.constant > 0 ? self.showMenu(.Left) : self.showMenu(.Right)
+            self.contentViewCenterConstraint.constant > 0 ? self.showMenu(.left) : self.showMenu(.right)
             
             
         } else {
@@ -323,15 +323,15 @@ public class PGSideMenu: UIViewController {
         
     }
     
-    private func showMenu(side: Side) {
+    fileprivate func showMenu(_ side: Side) {
         
-        let translation = side == .Left ? self.maxAbsoluteContentTranslation : -self.maxAbsoluteContentTranslation
+        let translation = side == .left ? self.maxAbsoluteContentTranslation : -self.maxAbsoluteContentTranslation
         
         self.translateContentView(inXDimension: translation, animated: true)
         
     }
     
-    private func toggleMenu(side: Side) {
+    fileprivate func toggleMenu(_ side: Side) {
         
         if self.isLeftMenuShown || self.isRightMenuShown {
             
@@ -346,9 +346,9 @@ public class PGSideMenu: UIViewController {
     
     // MARK: Appearance
     
-    private func addShadowToContentView() {
+    fileprivate func addShadowToContentView() {
 
-        self.contentContainerView.layer.shadowColor = UIColor.blackColor().CGColor
+        self.contentContainerView.layer.shadowColor = UIColor.black.cgColor
         self.contentContainerView.layer.shadowOffset = CGSize(width: 0, height: 3)
         self.contentContainerView.layer.shadowOpacity = 0.8
         self.contentContainerView.layer.masksToBounds = false

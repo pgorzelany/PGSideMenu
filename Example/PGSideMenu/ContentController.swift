@@ -21,7 +21,7 @@ class ContentController: UIViewController {
     
     init() {
         
-        super.init(nibName: "ContentController", bundle: NSBundle.mainBundle())
+        super.init(nibName: "ContentController", bundle: Bundle.main)
         
     }
     
@@ -40,9 +40,9 @@ class ContentController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func rightButtonTouched(sender: UIButton) {
+    @IBAction func rightButtonTouched(_ sender: UIButton) {
         
-        if let sideMenuController = self.parentViewController as? PGSideMenu {
+        if let sideMenuController = self.parent as? PGSideMenu {
             
             sideMenuController.toggleRightMenu()
             
@@ -50,9 +50,9 @@ class ContentController: UIViewController {
         
     }
     
-    @IBAction func leftButtonTouched(sender: UIButton) {
+    @IBAction func leftButtonTouched(_ sender: UIButton) {
         
-        if let sideMenuController = self.parentViewController as? PGSideMenu {
+        if let sideMenuController = self.parent as? PGSideMenu {
             
             sideMenuController.toggleLeftMenu()
             

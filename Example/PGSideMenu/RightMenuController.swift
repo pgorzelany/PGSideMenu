@@ -20,7 +20,7 @@ class RightMenuController: UIViewController {
     
     init() {
         
-        super.init(nibName: "RightMenuController", bundle: NSBundle.mainBundle())
+        super.init(nibName: "RightMenuController", bundle: Bundle.main)
         
     }
     
