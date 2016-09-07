@@ -118,9 +118,8 @@
 		0C2D0949B229ED87894D658F2BEABEA4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2F0CE8E79E162D2AC10903684CB6C568 /* Angle.swift */,
-				E45130123F16D0315A2B496660A21855 /* PGSideMenu.swift */,
-				55F262311CF89E6C00055C5B /* UIView+PGSideMenu.swift */,
+				553C16C61D8032ED0078BA39 /* PGSideMenu */,
+				553C16C51D8032DC0078BA39 /* Support */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -191,6 +190,31 @@
 				95E91547936371627259799D65DED455 /* Assets */,
 			);
 			path = PGSideMenu;
+			sourceTree = "<group>";
+		};
+		553C16C51D8032DC0078BA39 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2F0CE8E79E162D2AC10903684CB6C568 /* Angle.swift */,
+				55F262311CF89E6C00055C5B /* UIView+PGSideMenu.swift */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		553C16C61D8032ED0078BA39 /* PGSideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				553C16C71D8032F90078BA39 /* Animators */,
+				E45130123F16D0315A2B496660A21855 /* PGSideMenu.swift */,
+			);
+			name = PGSideMenu;
+			sourceTree = "<group>";
+		};
+		553C16C71D8032F90078BA39 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Animators;
 			sourceTree = "<group>";
 		};
 		5E8647B1C9C39E7763F9B82326807667 /* Pods-PGSideMenu_Tests */ = {
