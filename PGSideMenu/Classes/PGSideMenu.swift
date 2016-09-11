@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum Side {
-    
-    case left, right
-    
-}
-
 open class PGSideMenu: UIViewController {
     
     // MARK: Outlets
@@ -29,16 +23,16 @@ open class PGSideMenu: UIViewController {
     // MARK: Public Properties
     
     /** The current content controller */
-    open var contentController: UIViewController?
+    public var contentController: UIViewController?
     
     /** Left menu controller */
-    open var leftMenuController: UIViewController?
+    public var leftMenuController: UIViewController?
     
     /** Right menu controller */
-    open var rightMenuController: UIViewController?
+    public var rightMenuController: UIViewController?
     
     /** The width of the menu container as a percentage of the screen. Min is 0,  max is 1. */
-    open var menuPercentWidth: CGFloat = 0.8 {
+    public var menuPercentWidth: CGFloat = 0.8 {
         didSet {
             menuPercentWidth = min(1, menuPercentWidth)
             menuPercentWidth = max(0, menuPercentWidth)
@@ -46,7 +40,7 @@ open class PGSideMenu: UIViewController {
     }
     
     /** The scale factor for the content view when menu is shown. Min is 0, max is 1. */
-    open var contentScaleFactor: CGFloat = 0.9 {
+    public var contentScaleFactor: CGFloat = 0.9 {
         didSet {
             contentScaleFactor = min(1, contentScaleFactor)
             contentScaleFactor = max(0, contentScaleFactor)
@@ -54,13 +48,13 @@ open class PGSideMenu: UIViewController {
     }
     
     /** Duration of the menu opening animation */
-    open var menuAnimationDuration: TimeInterval = 0.4
+    public var menuAnimationDuration: TimeInterval = 0.4
     
     /** Animation options for menu open animation */
-    open var menuAnimationOptions: UIViewAnimationOptions = .curveEaseOut
+    public var menuAnimationOptions: UIViewAnimationOptions = .curveEaseOut
     
     /** If this property is set to true, whenever a menu is shown a transparent overlay view is added to the content view so there is no user interaction with the content. If the user touches the content, the menu will hide and the overlay will be removed. Defaults to true */
-    open var hideMenuOnContentTap: Bool = true
+    public var hideMenuOnContentTap: Bool = true
     
     // MARK: Private properties
     
@@ -100,7 +94,6 @@ open class PGSideMenu: UIViewController {
         super.viewDidLoad()
         
         self.configureController()
-        self.addShadowToContentView()
         
     }
     
@@ -129,7 +122,6 @@ open class PGSideMenu: UIViewController {
     /** Sets the right menu controller. You can retrieve this controller later using the rightMenuController property */
     open func addRightMenuController(_ controller: UIViewController) {
         
-        
         self.addChildViewController(controller)
         self.rightMenuContainerView.addSubviewFullscreen(controller.view)
         self.rightMenuController = controller
@@ -152,7 +144,7 @@ open class PGSideMenu: UIViewController {
     /** Hides whatever menu is shown. */
     open func hideMenu(animated: Bool = true) {
         
-        self.animationDelegate.closeMenu(animated: animated)
+        self.animationDelegate.hideMenu(animated: animated)
     }
     
     // MARK: Private methods
@@ -175,7 +167,7 @@ open class PGSideMenu: UIViewController {
     }
     
     func overlayTouched(_ recognizer: UITapGestureRecognizer) {
-        self.animationDelegate.closeMenu(animated: true)
+        self.animationDelegate.hideMenu(animated: true)
     }
     
     func addContentOverlay() {
@@ -188,17 +180,6 @@ open class PGSideMenu: UIViewController {
     func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
         self.animationDelegate.sideMenu(panGestureRecognized: recognizer)
-        
-    }
-    
-    // MARK: Appearance
-    
-    fileprivate func addShadowToContentView() {
-
-        self.contentContainerView.layer.shadowColor = UIColor.black.cgColor
-        self.contentContainerView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        self.contentContainerView.layer.shadowOpacity = 0.8
-        self.contentContainerView.layer.masksToBounds = false
         
     }
 }

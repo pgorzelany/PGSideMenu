@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+enum Side {
+    case left, right
+}
+
 protocol PGSideMenuAnimationDelegate: class {
     
     init(sideMenu: PGSideMenu)
@@ -16,16 +20,12 @@ protocol PGSideMenuAnimationDelegate: class {
     var sideMenu: PGSideMenu {get}
     
     func toggleLeftMenu(animated: Bool)
-    func openLeftMenu(animated: Bool)
-    func closeLeftMenu(animated: Bool)
     var isLeftMenuOpen: Bool {get}
     
     func toggleRightMenu(animated: Bool)
-    func openRightMenu(animated: Bool)
-    func closeRightMenu(animated: Bool)
     var isRightMenuOpen: Bool {get}
     
-    func closeMenu(animated: Bool)
+    func hideMenu(animated: Bool)
     
     func sideMenu(panGestureRecognized: UIPanGestureRecognizer)
 }

@@ -39,6 +39,15 @@ class PGSideMenuSlideInRotateAnimator {
         
         self.sideMenu.leftMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
         self.sideMenu.rightMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
+        self.addShadowToContentView()
+    }
+    
+    func addShadowToContentView() {
+        
+        self.sideMenu.contentContainerView.layer.shadowColor = UIColor.black.cgColor
+        self.sideMenu.contentContainerView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.sideMenu.contentContainerView.layer.shadowOpacity = 0.8
+        self.sideMenu.contentContainerView.layer.masksToBounds = false
     }
     
     func translateContentView(inXDimension x: CGFloat, animated: Bool) {
@@ -48,12 +57,12 @@ class PGSideMenuSlideInRotateAnimator {
         
         // Do not translate, if there is no menu
         if x > 0 && self.sideMenu.leftMenuController == nil {
-            self.closeMenu(animated: false)
+            self.hideMenu(animated: false)
             return
         }
         
         if x < 0 && self.sideMenu.rightMenuController == nil {
-            self.closeMenu(animated: false)
+            self.hideMenu(animated: false)
             return
         }
         
@@ -105,7 +114,7 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
         
         if self.isLeftMenuOpen || self.isRightMenuOpen {
             
-            self.closeMenu()
+            self.hideMenu()
             
         } else {
             
@@ -126,7 +135,7 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
     
     func closeLeftMenu(animated: Bool = true) {
         
-        self.closeMenu(animated: true)
+        self.hideMenu(animated: true)
     }
     
     var isLeftMenuOpen: Bool {
@@ -146,7 +155,7 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
     
     func closeRightMenu(animated: Bool = true) {
         
-        self.closeMenu()
+        self.hideMenu()
     }
     
     var isRightMenuOpen: Bool {
@@ -154,7 +163,7 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
         return sideMenu.contentViewCenterConstraint.constant == -self.maxAbsoluteContentTranslation
     }
     
-    func closeMenu(animated: Bool = true) {
+    func hideMenu(animated: Bool = true) {
         
         guard self.sideMenu.contentViewCenterConstraint.constant != 0 else {return}
         
