@@ -15,17 +15,17 @@ protocol PGSideMenuAnimationDelegate: class {
     
     var sideMenu: PGSideMenu {get}
     
-    func toggleLeftMenu(controller: PGSideMenu)
-    func openLeftMenu(controller: PGSideMenu)
-    func closeLeftMenu(controller: PGSideMenu)
+    func toggleLeftMenu(animated: Bool)
+    func openLeftMenu(animated: Bool)
+    func closeLeftMenu(animated: Bool)
     var isLeftMenuOpen: Bool {get}
     
-    func toggleRightMenu(controller: PGSideMenu)
-    func openRightMenu(controller: PGSideMenu)
-    func closeRightMenu(controller: PGSideMenu)
+    func toggleRightMenu(animated: Bool)
+    func openRightMenu(animated: Bool)
+    func closeRightMenu(animated: Bool)
     var isRightMenuOpen: Bool {get}
     
-    func hideMenu(controller: PGSideMenu)
+    func closeMenu(animated: Bool)
     
-    func sideMenu(controller: PGSideMenu, panGestureRecognized: UIPanGestureRecognizer)
+    func sideMenu(panGestureRecognized: UIPanGestureRecognizer)
 }

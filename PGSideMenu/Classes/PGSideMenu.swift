@@ -8,7 +8,7 @@
 
 import UIKit
 
-private enum Side {
+enum Side {
     
     case left, right
     
