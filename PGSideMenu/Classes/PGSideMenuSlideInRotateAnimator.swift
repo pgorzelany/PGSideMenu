@@ -22,8 +22,6 @@ class PGSideMenuSlideInRotateAnimator {
     
     var initialContentTranslation: CGFloat = 0
     
-    var animating = false
-    
     // MARK: Lifecycle
     
     required init(sideMenu: PGSideMenu) {
@@ -224,7 +222,7 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
             
         } else {
             
-            self.closeMenu()
+            self.hideMenu()
             
         }
         

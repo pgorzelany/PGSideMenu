@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
         
-        let sideMenuController = PGSideMenu()
+        let sideMenuController = PGSideMenu(animationType: .slideIn)
         let contentController = ContentController()
         let leftMenuController = LeftMenuController()
         let rightMenuController = RightMenuController()

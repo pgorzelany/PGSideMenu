@@ -31,6 +31,14 @@ open class PGSideMenu: UIViewController {
     /** Right menu controller */
     public var rightMenuController: UIViewController?
     
+    /** Sets the animation type of the menu. Closes any currently opened menu. */
+    public var animationType: PGSideMenuAnimationType = .slideIn {
+        didSet {
+            self.animationDelegate.hideMenu(animated: false)
+            self.setAnimationDelegate(forAnimationType: self.animationType)
+        }
+    }
+    
     /** The width of the menu container as a percentage of the screen. Min is 0,  max is 1. */
     public var menuPercentWidth: CGFloat = 0.8 {
         didSet {
@@ -77,7 +85,7 @@ open class PGSideMenu: UIViewController {
         
     }
     
-    public init(animationType: PGSideMenuAnimationType = .slideInRotate) {
+    public init(animationType: PGSideMenuAnimationType) {
         
         let podBundle = Bundle(for: PGSideMenu.self)
         let bundleURL = podBundle.url(forResource: "PGSideMenu", withExtension: "bundle")
@@ -161,6 +169,9 @@ open class PGSideMenu: UIViewController {
         switch type {
             
         case .slideInRotate: self.animationDelegate = PGSideMenuSlideInRotateAnimator(sideMenu: self)
+            
+        case .slideIn: self.animationDelegate = PGSideMenuSlideInAnimator(sideMenu: self)
+            
         default: break
             
         }
