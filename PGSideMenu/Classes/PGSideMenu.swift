@@ -64,7 +64,9 @@ open class PGSideMenu: UIViewController {
     
     // MARK: Private properties
     
-    private weak var animationDelegate: PGSideMenuAnimationDelegate?
+    private lazy var animationDelegate: PGSideMenuAnimationDelegate = {
+        return PGSideMenuSlideInRotateAnimator(sideMenu: self)
+    }()
     
     fileprivate var maxAbsoluteContentTranslation: CGFloat {
         return UIScreen.main.bounds.width * self.menuPercentWidth

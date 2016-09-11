@@ -12,7 +12,7 @@ class PGSideMenuSlideInRotateAnimator {
     
     // MARK: Properties
     
-    let sideMenu: PGSideMenu
+    unowned let sideMenu: PGSideMenu
     
     var maxAbsoluteContentTranslation: CGFloat {
         return UIScreen.main.bounds.width * sideMenu.menuPercentWidth
