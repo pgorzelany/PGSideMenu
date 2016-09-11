@@ -11,6 +11,8 @@ import UIKit
 
 protocol PGSideMenuAnimationDelegate: class {
     
+    init(sideMenu: PGSideMenu)
+    
     var sideMenu: PGSideMenu {get}
     
     func toggleLeftMenu(controller: PGSideMenu)

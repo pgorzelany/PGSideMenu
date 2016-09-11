@@ -16,7 +16,7 @@ class PGSideMenuSlideInRotateAnimator {
     
     // MARK: Lifecycle
     
-    init(sideMenu: PGSideMenu) {
+    required init(sideMenu: PGSideMenu) {
         self.sideMenu = sideMenu
     }
     

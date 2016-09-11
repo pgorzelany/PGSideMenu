@@ -64,6 +64,8 @@ open class PGSideMenu: UIViewController {
     
     // MARK: Private properties
     
+    private weak var animationDelegate: PGSideMenuAnimationDelegate?
+    
     fileprivate var maxAbsoluteContentTranslation: CGFloat {
         return UIScreen.main.bounds.width * self.menuPercentWidth
     }
@@ -100,6 +102,7 @@ open class PGSideMenu: UIViewController {
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
     }
     
     public init(animationType: PGSideMenuAnimationType = .slideInRotate) {
@@ -109,6 +112,7 @@ open class PGSideMenu: UIViewController {
         let bundle = Bundle(url: bundleURL!)!
         super.init(nibName: "PGSideMenu", bundle: bundle)
         let _ = self.view // used to set all outlets
+        self.setAnimationDelegate(forAnimationType: animationType)
         
     }
     
@@ -203,6 +207,16 @@ open class PGSideMenu: UIViewController {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.view.addGestureRecognizer(panGestureRecognizer)
         
+    }
+    
+    private func setAnimationDelegate(forAnimationType type: PGSideMenuAnimationType) {
+        
+        switch type {
+            
+        case .slideInRotate: self.animationDelegate = PGSideMenuSlideInRotateAnimator(sideMenu: self)
+        default: break
+            
+        }
     }
     
     func overlayTouched(_ recognizer: UITapGestureRecognizer) {
