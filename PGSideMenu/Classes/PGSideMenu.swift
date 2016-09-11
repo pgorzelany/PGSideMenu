@@ -13,15 +13,6 @@ private enum Side {
     case left, right
     
 }
-    
-protocol PGSideMenuDelegate {
-    
-    func PGSideMenuDelegateWillShowLeftMenu(_ menu: PGSideMenu)
-    func PGSideMenuDelegateWillShowRightMenu(_ menu: PGSideMenu)
-    func PGSideMenuDelegateWillHideLeftMenu(_ menu: PGSideMenu)
-    func PGSideMenuDelegateWillHideRightMenu(_ menu: PGSideMenu)
-    
-}
 
 open class PGSideMenu: UIViewController {
     
@@ -111,7 +102,7 @@ open class PGSideMenu: UIViewController {
         super.init(coder: aDecoder)
     }
     
-    public init() {
+    public init(animationType: PGSideMenuAnimationType = .slideInRotate) {
         
         let podBundle = Bundle(for: PGSideMenu.self)
         let bundleURL = podBundle.url(forResource: "PGSideMenu", withExtension: "bundle")

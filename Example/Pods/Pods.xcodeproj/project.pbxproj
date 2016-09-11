@@ -12,6 +12,9 @@
 		27AD8394DE5AB1735729E4220C068961 /* Pods-PGSideMenu_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27D59A28D190554830229276163928B2 /* Pods-PGSideMenu_Tests-dummy.m */; };
 		35CE610A3240A9654FA48EAE91319418 /* PGSideMenu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5265FBF20E9B7DAAEC21AD808832CF0 /* PGSideMenu.bundle */; };
 		3C23BC1FD465F1A435DE7AC3CEA5E185 /* Pods-PGSideMenu_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C17AD257752FBC7BBED8E79CF5D273B9 /* Pods-PGSideMenu_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		55EA01201D85967500353852 /* PGSideMenuAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA011F1D85967500353852 /* PGSideMenuAnimationType.swift */; };
+		55EA01221D85978100353852 /* PGSideMenuAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA01211D85978100353852 /* PGSideMenuAnimationDelegate.swift */; };
+		55EA01241D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA01231D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift */; };
 		55F262321CF89E6C00055C5B /* UIView+PGSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F262311CF89E6C00055C5B /* UIView+PGSideMenu.swift */; };
 		653C3078C86C38ABF9AD2D81279BD535 /* Pods-PGSideMenu_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07C263A793D2B4D9C627E2F8200E05CE /* Pods-PGSideMenu_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70155AFBBB049B954F89F31A5398683D /* Pods-PGSideMenu_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E33921F707F0316EF6141263481D2AA0 /* Pods-PGSideMenu_Example-dummy.m */; };
@@ -53,6 +56,9 @@
 		470542AA8F7E760F8F393540FB507C70 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PGSideMenu.xcconfig; sourceTree = "<group>"; };
 		527B5CAEFCCA342094D4E90F23F8426E /* Pods-PGSideMenu_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGSideMenu_Example-frameworks.sh"; sourceTree = "<group>"; };
+		55EA011F1D85967500353852 /* PGSideMenuAnimationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuAnimationType.swift; sourceTree = "<group>"; };
+		55EA01211D85978100353852 /* PGSideMenuAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuAnimationDelegate.swift; sourceTree = "<group>"; };
+		55EA01231D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuSlideInRotateAnimator.swift; sourceTree = "<group>"; };
 		55F262311CF89E6C00055C5B /* UIView+PGSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+PGSideMenu.swift"; sourceTree = "<group>"; };
 		5722C46764E9CD7360FFF1AEFCF92D6A /* Pods-PGSideMenu_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGSideMenu_Example-resources.sh"; sourceTree = "<group>"; };
 		5A713CE3822045AA96FE232DA306590B /* Pods-PGSideMenu_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-PGSideMenu_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -206,6 +212,7 @@
 			children = (
 				553C16C71D8032F90078BA39 /* Animators */,
 				E45130123F16D0315A2B496660A21855 /* PGSideMenu.swift */,
+				55EA011F1D85967500353852 /* PGSideMenuAnimationType.swift */,
 			);
 			name = PGSideMenu;
 			sourceTree = "<group>";
@@ -213,6 +220,8 @@
 		553C16C71D8032F90078BA39 /* Animators */ = {
 			isa = PBXGroup;
 			children = (
+				55EA01211D85978100353852 /* PGSideMenuAnimationDelegate.swift */,
+				55EA01231D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -476,6 +485,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55EA01241D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift in Sources */,
+				55EA01221D85978100353852 /* PGSideMenuAnimationDelegate.swift in Sources */,
+				55EA01201D85967500353852 /* PGSideMenuAnimationType.swift in Sources */,
 				BD7296D587FDA8AF06B3A2E072F21BCA /* Angle.swift in Sources */,
 				8F41635F356E410717F96A3A189FE154 /* PGSideMenu-dummy.m in Sources */,
 				9E95E1FF3835814A8ECDDBE218984DB4 /* PGSideMenu.swift in Sources */,
