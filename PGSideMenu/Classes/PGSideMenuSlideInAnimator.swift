@@ -30,6 +30,8 @@ class PGSideMenuSlideInAnimator: PGSideMenuAnimationDelegate {
         return UIScreen.main.bounds.width * sideMenu.menuPercentWidth
     }
     
+    var initialContentTranslation: CGFloat = 0
+    
     // MARK: Lifecycle
     
     required init(sideMenu: PGSideMenu) {
@@ -110,8 +112,36 @@ class PGSideMenuSlideInAnimator: PGSideMenuAnimationDelegate {
         }
     }
     
-    func sideMenu(panGestureRecognized: UIPanGestureRecognizer) {
+    func sideMenu(panGestureRecognized recognizer: UIPanGestureRecognizer) {
         
+        let translation = recognizer.translation(in: self.sideMenu.view)
         
+        switch recognizer.state {
+            
+        case .began:
+            self.initialContentTranslation = self.sideMenu.contentViewCenterConstraint.constant
+        case .changed:
+            self.translateContentView(by: translation.x + self.initialContentTranslation, animated: false)
+        case .ended:
+            self.handlePanGestureEnd()
+        default: break
+            
+        }
+    }
+    
+    func handlePanGestureEnd() {
+        
+        if abs(self.sideMenu.contentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 2.0 {
+            
+            // Almost opened
+            
+            self.sideMenu.contentViewCenterConstraint.constant > 0 ? self.openLeftMenu(animated: true) : self.openRightMenu(animated: true)
+            
+            
+        } else {
+            
+            self.hideMenu(animated: true)
+            
+        }
     }
 }
