@@ -13,6 +13,7 @@
 		35CE610A3240A9654FA48EAE91319418 /* PGSideMenu.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5265FBF20E9B7DAAEC21AD808832CF0 /* PGSideMenu.bundle */; };
 		3C23BC1FD465F1A435DE7AC3CEA5E185 /* Pods-PGSideMenu_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C17AD257752FBC7BBED8E79CF5D273B9 /* Pods-PGSideMenu_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5579D0C51D85DB5300734019 /* PGSideMenuSlideInAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5579D0C41D85DB5300734019 /* PGSideMenuSlideInAnimator.swift */; };
+		55D6F7C11D888A7600C3E620 /* PGSideMenuSlideOverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6F7C01D888A7600C3E620 /* PGSideMenuSlideOverAnimator.swift */; };
 		55EA01201D85967500353852 /* PGSideMenuAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA011F1D85967500353852 /* PGSideMenuAnimationType.swift */; };
 		55EA01221D85978100353852 /* PGSideMenuAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA01211D85978100353852 /* PGSideMenuAnimationDelegate.swift */; };
 		55EA01241D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55EA01231D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift */; };
@@ -58,6 +59,7 @@
 		4FBB5114449335B883EA80E275607335 /* PGSideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = PGSideMenu.xcconfig; sourceTree = "<group>"; };
 		527B5CAEFCCA342094D4E90F23F8426E /* Pods-PGSideMenu_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-PGSideMenu_Example-frameworks.sh"; sourceTree = "<group>"; };
 		5579D0C41D85DB5300734019 /* PGSideMenuSlideInAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuSlideInAnimator.swift; sourceTree = "<group>"; };
+		55D6F7C01D888A7600C3E620 /* PGSideMenuSlideOverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuSlideOverAnimator.swift; sourceTree = "<group>"; };
 		55EA011F1D85967500353852 /* PGSideMenuAnimationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuAnimationType.swift; sourceTree = "<group>"; };
 		55EA01211D85978100353852 /* PGSideMenuAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuAnimationDelegate.swift; sourceTree = "<group>"; };
 		55EA01231D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PGSideMenuSlideInRotateAnimator.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				55EA01211D85978100353852 /* PGSideMenuAnimationDelegate.swift */,
 				55EA01231D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift */,
 				5579D0C41D85DB5300734019 /* PGSideMenuSlideInAnimator.swift */,
+				55D6F7C01D888A7600C3E620 /* PGSideMenuSlideOverAnimator.swift */,
 			);
 			name = Animators;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				55EA01241D85997E00353852 /* PGSideMenuSlideInRotateAnimator.swift in Sources */,
 				55EA01221D85978100353852 /* PGSideMenuAnimationDelegate.swift in Sources */,
 				55EA01201D85967500353852 /* PGSideMenuAnimationType.swift in Sources */,
+				55D6F7C11D888A7600C3E620 /* PGSideMenuSlideOverAnimator.swift in Sources */,
 				BD7296D587FDA8AF06B3A2E072F21BCA /* Angle.swift in Sources */,
 				8F41635F356E410717F96A3A189FE154 /* PGSideMenu-dummy.m in Sources */,
 				9E95E1FF3835814A8ECDDBE218984DB4 /* PGSideMenu.swift in Sources */,

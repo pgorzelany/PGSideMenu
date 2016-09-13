@@ -8,10 +8,12 @@
 
 import Foundation
 
-public enum PGSideMenuAnimationType {
+public enum PGSideMenuAnimationType: Int {
 
-    case slideIn
-    case slideOver
-    case slideInRotate
+    case slideIn = 0
+    case slideOver = 1
+    case slideInRotate = 2
     
 }
+
+

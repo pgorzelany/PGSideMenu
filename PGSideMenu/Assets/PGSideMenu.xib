@@ -11,8 +11,10 @@
                 <outlet property="contentContainerView" destination="TMa-1U-jAa" id="Buo-il-i7v"/>
                 <outlet property="contentViewCenterConstraint" destination="As7-aE-508" id="t3X-2A-D9S"/>
                 <outlet property="leftMenuContainerView" destination="nKd-fv-Jhf" id="qq2-1u-ZEA"/>
+                <outlet property="leftMenuTrailingConstraint" destination="45i-od-Vnr" id="LT5-ZA-PgP"/>
                 <outlet property="leftMenuWidthConstraint" destination="uvA-66-ptf" id="xYY-nw-4Mg"/>
                 <outlet property="rightMenuContainerView" destination="AfC-i2-bbh" id="QZG-Iv-mGo"/>
+                <outlet property="rightMenuLeadingConstraint" destination="ke1-fm-Wah" id="Beg-d2-L8M"/>
                 <outlet property="rightMenuWidthConstraint" destination="pzm-EJ-Cc4" id="76o-gc-y4u"/>
                 <outlet property="view" destination="84d-Pu-6GV" id="P3n-Jb-Sa6"/>
             </connections>

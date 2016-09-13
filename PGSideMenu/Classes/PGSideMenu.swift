@@ -17,7 +17,9 @@ open class PGSideMenu: UIViewController {
     @IBOutlet weak var rightMenuContainerView: UIView!
     
     @IBOutlet weak var contentViewCenterConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftMenuTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftMenuWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightMenuLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightMenuWidthConstraint: NSLayoutConstraint!
     
     // MARK: Public Properties
@@ -172,7 +174,7 @@ open class PGSideMenu: UIViewController {
             
         case .slideIn: self.animationDelegate = PGSideMenuSlideInAnimator(sideMenu: self)
             
-        default: break
+        case .slideOver: self.animationDelegate = PGSideMenuSlideOverAnimator(sideMenu: self)
             
         }
     }
