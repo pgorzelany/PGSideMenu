@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		363E2690076951D236D500B7 /* Pods_PGSideMenu_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2BC10DF1557607325534CE3 /* Pods_PGSideMenu_Tests.framework */; };
+		55D6F7C41D888DA100C3E620 /* AnimationTypeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55D6F7C31D888DA100C3E620 /* AnimationTypeTableCell.xib */; };
+		55D6F7C61D888DB800C3E620 /* AnimationTypeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D6F7C51D888DB800C3E620 /* AnimationTypeTableCell.swift */; };
 		55F262341CF8A0D300055C5B /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F262331CF8A0D300055C5B /* ExampleViewController.swift */; };
 		55F262371CF8A13700055C5B /* ExampleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F262361CF8A13700055C5B /* ExampleController.xib */; };
 		55F2623D1CF8A27A00055C5B /* ContentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55F2623C1CF8A27A00055C5B /* ContentController.xib */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		1D95CDD0005A50A08A28B16D /* Pods-PGSideMenu_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGSideMenu_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-PGSideMenu_Example/Pods-PGSideMenu_Example.release.xcconfig"; sourceTree = "<group>"; };
 		211A355EF8F9C6D4EBBA8E5E /* Pods-PGSideMenu_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PGSideMenu_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PGSideMenu_Tests/Pods-PGSideMenu_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		55D6F7C31D888DA100C3E620 /* AnimationTypeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnimationTypeTableCell.xib; sourceTree = "<group>"; };
+		55D6F7C51D888DB800C3E620 /* AnimationTypeTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationTypeTableCell.swift; sourceTree = "<group>"; };
 		55F262331CF8A0D300055C5B /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		55F262361CF8A13700055C5B /* ExampleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExampleController.xib; sourceTree = "<group>"; };
 		55F2623C1CF8A27A00055C5B /* ContentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentController.xib; sourceTree = "<group>"; };
@@ -81,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55D6F7C21D888D8800C3E620 /* AnimationTypeCell */ = {
+			isa = PBXGroup;
+			children = (
+				55D6F7C31D888DA100C3E620 /* AnimationTypeTableCell.xib */,
+				55D6F7C51D888DB800C3E620 /* AnimationTypeTableCell.swift */,
+			);
+			name = AnimationTypeCell;
+			sourceTree = "<group>";
+		};
 		55F262351CF8A11100055C5B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +111,7 @@
 			children = (
 				55F2623C1CF8A27A00055C5B /* ContentController.xib */,
 				55F262421CF8A2E000055C5B /* ContentController.swift */,
+				55D6F7C21D888D8800C3E620 /* AnimationTypeCell */,
 			);
 			name = Content;
 			sourceTree = "<group>";
@@ -301,6 +315,7 @@
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
 				55F2623F1CF8A28400055C5B /* LeftMenuController.xib in Resources */,
 				55F2623D1CF8A27A00055C5B /* ContentController.xib in Resources */,
+				55D6F7C41D888DA100C3E620 /* AnimationTypeTableCell.xib in Resources */,
 				55F262411CF8A28D00055C5B /* RightMenuController.xib in Resources */,
 				55F262371CF8A13700055C5B /* ExampleController.xib in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
@@ -417,6 +432,7 @@
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				55F262471CF8A2F700055C5B /* RightMenuController.swift in Sources */,
 				55F262431CF8A2E000055C5B /* ContentController.swift in Sources */,
+				55D6F7C61D888DB800C3E620 /* AnimationTypeTableCell.swift in Sources */,
 				55F262341CF8A0D300055C5B /* ExampleViewController.swift in Sources */,
 				55F262451CF8A2EC00055C5B /* LeftMenuController.swift in Sources */,
 			);

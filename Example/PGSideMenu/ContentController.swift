@@ -13,7 +13,7 @@ class ContentController: UIViewController {
 
     // MARK: Outlets
     
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: Properties
     
@@ -35,7 +35,7 @@ class ContentController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.configureController()
     }
     
     // MARK: Actions
@@ -63,8 +63,50 @@ class ContentController: UIViewController {
     
     // MARK: Support
     
+    func configureController() {
+        
+        self.configureTableView()
+    }
+    
+    func configureTableView() {
+        
+        let nib = UINib(nibName: "AnimationTypeTableCell", bundle: Bundle.main)
+        self.tableView.register(nib, forCellReuseIdentifier: "AnimationTypeTableCell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+    }
+    
     // MARK: Data
     
     // MARK: Appearance
 
+}
+
+extension ContentController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return PGSideMenuAnimationType.values.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnimationTypeTableCell", for: indexPath) as! AnimationTypeTableCell
+        let animationType = PGSideMenuAnimationType.values[indexPath.row]
+        cell.configure(with: animationType)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let animationType = PGSideMenuAnimationType.values[indexPath.row]
+        
+        if let sideMenu = self.parent as? PGSideMenu {
+            sideMenu.animationType = animationType
+        }
+    }
 }

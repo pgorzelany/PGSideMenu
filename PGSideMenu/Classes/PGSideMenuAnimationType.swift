@@ -16,4 +16,24 @@ public enum PGSideMenuAnimationType: Int {
     
 }
 
+extension PGSideMenuAnimationType {
+    
+    public static var values: [PGSideMenuAnimationType] {
+        return (0...10).flatMap(PGSideMenuAnimationType.init)
+    }
+}
+
+extension PGSideMenuAnimationType: CustomStringConvertible {
+    
+    public var description: String {
+        
+        switch self {
+            
+        case .slideOver: return "Slide Over"
+        case .slideInRotate: return "Slide In Rotate"
+        case .slideIn: return "Slide In"
+        }
+    }
+}
+
 
