@@ -26,9 +26,15 @@ class AnimationTypeTableCell: UITableViewCell {
     
     // MARK: Configuration
     
-    func configure(with animationType: PGSideMenuAnimationType) {
+    func configure(with animationType: PGSideMenuAnimationType, active: Bool) {
         
         self.titleLabel.text = animationType.description
+        
+        if active {
+            self.mainContainer.backgroundColor = UIColor.groupTableViewBackground
+        } else {
+            self.mainContainer.backgroundColor = UIColor.white
+        }
     }
 
 }

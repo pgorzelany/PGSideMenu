@@ -17,6 +17,8 @@ class ContentController: UIViewController {
     
     // MARK: Properties
     
+    var currentAnimationType: PGSideMenuAnimationType = .slideIn
+    
     // MARK: Initializers
     
     init() {
@@ -65,6 +67,9 @@ class ContentController: UIViewController {
     
     func configureController() {
         
+        if let sideMenu = self.parent as? PGSideMenu {
+            sideMenu.animationType = self.currentAnimationType
+        }
         self.configureTableView()
     }
     
@@ -97,7 +102,7 @@ extension ContentController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimationTypeTableCell", for: indexPath) as! AnimationTypeTableCell
         let animationType = PGSideMenuAnimationType.values[indexPath.row]
-        cell.configure(with: animationType)
+        cell.configure(with: animationType, active: animationType == self.currentAnimationType)
         return cell
     }
     
@@ -107,6 +112,8 @@ extension ContentController: UITableViewDataSource, UITableViewDelegate {
         
         if let sideMenu = self.parent as? PGSideMenu {
             sideMenu.animationType = animationType
+            self.currentAnimationType = animationType
+            self.tableView.reloadData()
         }
     }
 }
