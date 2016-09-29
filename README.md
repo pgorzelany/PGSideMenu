@@ -4,6 +4,8 @@
 [![License](https://img.shields.io/cocoapods/l/PGSideMenu.svg?style=flat)](http://cocoapods.org/pods/PGSideMenu)
 [![Platform](https://img.shields.io/cocoapods/p/PGSideMenu.svg?style=flat)](http://cocoapods.org/pods/PGSideMenu)
 
+A customizable side menu for iOS projects written in Swift. Multiple menu animation types supported!
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
