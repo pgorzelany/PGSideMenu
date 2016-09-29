@@ -17,7 +17,7 @@ protocol PGSideMenuAnimationDelegate: class {
     
     init(sideMenu: PGSideMenu)
     
-    var sideMenu: PGSideMenu {get}
+    unowned var sideMenu: PGSideMenu {get}
     
     func toggleLeftMenu(animated: Bool)
     var isLeftMenuOpen: Bool {get}

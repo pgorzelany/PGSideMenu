@@ -12,14 +12,14 @@ class PGSideMenuSlideOverAnimator: PGSideMenuAnimationDelegate {
     
     // MARK: Properties
     
-    let sideMenu: PGSideMenu
+    unowned let sideMenu: PGSideMenu
     
     var isLeftMenuOpen: Bool {
-        return self.sideMenu.leftMenuTrailingConstraint.constant == self.maxAbsoluteContentTranslation
+        return self.sideMenu.innerContentViewCenterConstraint.constant == self.maxAbsoluteContentTranslation
     }
     
     var isRightMenuOpen: Bool {
-        return self.sideMenu.rightMenuLeadingConstraint.constant == -self.maxAbsoluteContentTranslation
+        return self.sideMenu.innerContentViewCenterConstraint.constant == -self.maxAbsoluteContentTranslation
     }
     
     var isMenuOpen: Bool {
@@ -46,6 +46,7 @@ class PGSideMenuSlideOverAnimator: PGSideMenuAnimationDelegate {
         
         self.sideMenu.leftMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
         self.sideMenu.rightMenuWidthConstraint.constant = self.maxAbsoluteContentTranslation
+        self.sideMenu.innerContentViewCenterConstraint.constant = 0
     }
     
     func toggleLeftMenu(animated: Bool) {
@@ -83,7 +84,7 @@ class PGSideMenuSlideOverAnimator: PGSideMenuAnimationDelegate {
         
         guard abs(x) <= self.maxAbsoluteContentTranslation else {return}
         
-        self.sideMenu.contentViewCenterConstraint.constant = x
+        self.sideMenu.innerContentViewCenterConstraint.constant = x
         
         if animated {
             
@@ -98,8 +99,7 @@ class PGSideMenuSlideOverAnimator: PGSideMenuAnimationDelegate {
     
     func hideMenu(animated: Bool) {
         
-        self.sideMenu.leftMenuTrailingConstraint.constant = 0
-        self.sideMenu.rightMenuLeadingConstraint.constant = 0
+        self.sideMenu.innerContentViewCenterConstraint.constant = 0
         
         if animated {
             
@@ -119,7 +119,7 @@ class PGSideMenuSlideOverAnimator: PGSideMenuAnimationDelegate {
         switch recognizer.state {
             
         case .began:
-            self.initialContentTranslation = self.sideMenu.contentViewCenterConstraint.constant
+            self.initialContentTranslation = self.sideMenu.innerContentViewCenterConstraint.constant
         case .changed:
             self.translateContentView(by: translation.x + self.initialContentTranslation, animated: false)
         case .ended:
@@ -131,11 +131,11 @@ class PGSideMenuSlideOverAnimator: PGSideMenuAnimationDelegate {
     
     func handlePanGestureEnd() {
         
-        if abs(self.sideMenu.contentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 2.0 {
+        if abs(self.sideMenu.innerContentViewCenterConstraint.constant) > self.maxAbsoluteContentTranslation / 2.0 {
             
             // Almost opened
             
-            self.sideMenu.contentViewCenterConstraint.constant > 0 ? self.openLeftMenu(animated: true) : self.openRightMenu(animated: true)
+            self.sideMenu.innerContentViewCenterConstraint.constant > 0 ? self.openLeftMenu(animated: true) : self.openRightMenu(animated: true)
             
             
         } else {

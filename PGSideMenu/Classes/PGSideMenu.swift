@@ -17,9 +17,8 @@ open class PGSideMenu: UIViewController {
     @IBOutlet weak var rightMenuContainerView: UIView!
     
     @IBOutlet weak var contentViewCenterConstraint: NSLayoutConstraint!
-    @IBOutlet weak var leftMenuTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var innerContentViewCenterConstraint: NSLayoutConstraint!
     @IBOutlet weak var leftMenuWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var rightMenuLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var rightMenuWidthConstraint: NSLayoutConstraint!
     
     // MARK: Public Properties

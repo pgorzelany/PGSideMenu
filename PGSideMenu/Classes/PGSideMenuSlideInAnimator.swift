@@ -12,7 +12,7 @@ class PGSideMenuSlideInAnimator: PGSideMenuAnimationDelegate {
     
     // MARK: Properties
     
-    let sideMenu: PGSideMenu
+    unowned let sideMenu: PGSideMenu
     
     var isLeftMenuOpen: Bool {
         return self.sideMenu.contentViewCenterConstraint.constant == self.maxAbsoluteContentTranslation
