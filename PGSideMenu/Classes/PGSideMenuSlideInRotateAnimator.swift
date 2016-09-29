@@ -48,19 +48,19 @@ class PGSideMenuSlideInRotateAnimator {
         self.sideMenu.contentContainerView.layer.masksToBounds = false
     }
     
-    func translateContentView(inXDimension x: CGFloat, animated: Bool) {
+    func translateContentView(inXDimension x: CGFloat, animated: Bool, completion: (() -> Void)?) {
         
         // Do not translate if the translation is at the maximum
         guard abs(x) <= self.maxAbsoluteContentTranslation else {return}
         
         // Do not translate, if there is no menu
         if x > 0 && self.sideMenu.leftMenuController == nil {
-            self.hideMenu(animated: false)
+            self.hideMenu(animated: false, completion: completion)
             return
         }
         
         if x < 0 && self.sideMenu.rightMenuController == nil {
-            self.hideMenu(animated: false)
+            self.hideMenu(animated: false, completion: completion)
             return
         }
         
@@ -108,32 +108,32 @@ class PGSideMenuSlideInRotateAnimator {
 
 extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
     
-    func toggleMenu(side: Side) {
+    func toggleMenu(side: Side, completion: (() -> Void)?) {
         
         if self.isLeftMenuOpen || self.isRightMenuOpen {
             
-            self.hideMenu()
+            self.hideMenu(completion: completion)
             
         } else {
             
-            side == .left ? self.openLeftMenu() : self.openRightMenu()
+            side == .left ? self.openLeftMenu(completion: completion) : self.openRightMenu(completion: completion)
             
         }
     }
     
-    func toggleLeftMenu(animated: Bool = true) {
+    func toggleLeftMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.toggleMenu(side: .left)
+        self.toggleMenu(side: .left, completion: completion)
     }
     
-    func openLeftMenu(animated: Bool = true) {
+    func openLeftMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.translateContentView(inXDimension: self.maxAbsoluteContentTranslation, animated: animated)
+        self.translateContentView(inXDimension: self.maxAbsoluteContentTranslation, animated: animated, completion: completion)
     }
     
-    func closeLeftMenu(animated: Bool = true) {
+    func closeLeftMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.hideMenu(animated: true)
+        self.hideMenu(animated: true, completion: completion)
     }
     
     var isLeftMenuOpen: Bool {
@@ -141,19 +141,19 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
         return sideMenu.contentViewCenterConstraint.constant == self.maxAbsoluteContentTranslation
     }
     
-    func toggleRightMenu(animated: Bool = true) {
+    func toggleRightMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.toggleMenu(side: .right)
+        self.toggleMenu(side: .right, completion: completion)
     }
     
-    func openRightMenu(animated: Bool = true) {
+    func openRightMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.translateContentView(inXDimension: -self.maxAbsoluteContentTranslation, animated: animated)
+        self.translateContentView(inXDimension: -self.maxAbsoluteContentTranslation, animated: animated, completion: completion)
     }
     
-    func closeRightMenu(animated: Bool = true) {
+    func closeRightMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.hideMenu()
+        self.hideMenu(animated: animated, completion: completion)
     }
     
     var isRightMenuOpen: Bool {
@@ -161,7 +161,7 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
         return sideMenu.contentViewCenterConstraint.constant == -self.maxAbsoluteContentTranslation
     }
     
-    func hideMenu(animated: Bool = true) {
+    func hideMenu(animated: Bool, completion: (() -> Void)?) {
         
         guard self.sideMenu.contentViewCenterConstraint.constant != 0 else {return}
         
@@ -198,7 +198,7 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
             
         case .changed:
             
-            self.translateContentView(inXDimension: translation.x + self.initialContentTranslation, animated: false)
+            self.translateContentView(inXDimension: translation.x + self.initialContentTranslation, animated: false, completion: nil)
             
         case .ended:
             
@@ -217,12 +217,12 @@ extension PGSideMenuSlideInRotateAnimator: PGSideMenuAnimationDelegate {
             
             // Almost opened
             
-            self.sideMenu.contentViewCenterConstraint.constant > 0 ? self.openLeftMenu() : self.openRightMenu()
+            self.sideMenu.contentViewCenterConstraint.constant > 0 ? self.openLeftMenu(animated: true, completion: nil) : self.openRightMenu(animated: true, completion: nil)
             
             
         } else {
             
-            self.hideMenu()
+            self.hideMenu(animated: true, completion: nil)
             
         }
         

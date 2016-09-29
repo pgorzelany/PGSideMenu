@@ -138,22 +138,22 @@ open class PGSideMenu: UIViewController {
     }
     
     /** Open/close left menu depending on menu state. */
-    open func toggleLeftMenu() {
+    open func toggleLeftMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.animationDelegate.toggleLeftMenu(animated: true)
+        self.animationDelegate.toggleLeftMenu(animated: true, completion: completion)
         
     }
     
     /** Open/close right menu depending on menu state. */
-    open func toggleRightMenu() {
+    open func toggleRightMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.self.animationDelegate.toggleRightMenu(animated: true)
+        self.self.animationDelegate.toggleRightMenu(animated: true, completion: completion)
     }
     
     /** Hides whatever menu is shown. */
-    open func hideMenu(animated: Bool = true) {
+    open func hideMenu(animated: Bool, completion: (() -> Void)?) {
         
-        self.animationDelegate.hideMenu(animated: animated)
+        self.animationDelegate.hideMenu(animated: animated, completion: completion)
     }
     
     // MARK: Private methods
