@@ -65,6 +65,13 @@ open class PGSideMenu: UIViewController {
     /** If this property is set to true, whenever a menu is shown a transparent overlay view is added to the content view so there is no user interaction with the content. If the user touches the content, the menu will hide and the overlay will be removed. Defaults to true */
     public var hideMenuOnContentTap: Bool = true
     
+    /** Enables/disables gesture interaction with the menu. Defaults to true */
+    public var enableMenuPanGesture: Bool = true {
+        didSet {
+            self.panGestureRecognizer.isEnabled = self.enableMenuPanGesture
+        }
+    }
+    
     // MARK: Private properties
     
     private lazy var animationDelegate: PGSideMenuAnimationDelegate = {
@@ -78,6 +85,8 @@ open class PGSideMenu: UIViewController {
         overlayView.addGestureRecognizer(tapRecognizer)
         return overlayView
     }()
+    
+    lazy var panGestureRecognizer: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
     
     // MARK: Initializers
     
@@ -160,7 +169,6 @@ open class PGSideMenu: UIViewController {
     
     fileprivate func configureController(){
         
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(panGestureRecognized))
         self.view.addGestureRecognizer(panGestureRecognizer)
         
     }

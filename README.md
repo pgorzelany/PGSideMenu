@@ -17,22 +17,58 @@ it, simply add the following line to your Podfile:
 pod "PGSideMenu"
 ```
 
-### Example Usage
+## Usage
 
 ![](http://i.giphy.com/3oD3YmQTMADfYEQb4Y.gif)
 
-See the example project or example code below.
+See example project for usage.
+
+Setup you side menu with a content, left and right controller.
 
 ```
 let sideMenuController = PGSideMenu()
-let contentController = ContentController()
-let leftMenuController = LeftMenuController()
-let rightMenuController = RightMenuController()
+let contentController = YourContentController()
+let leftMenuController = YourLeftMenuController()
+let rightMenuController = YourRightMenuController()
 sideMenuController.addContentController(contentController)
 sideMenuController.addLeftMenuController(leftMenuController)
 sideMenuController.addRightMenuController(rightMenuController)
 self.window?.rootViewController = sideMenuController
 ```
+
+Choose which animation mode you want to use.
+
+```
+sideMenuController.animationType = .slideInRotate
+
+```
+
+Toggle the menu
+
+```
+sideMenuController.toggleLeftMenu()
+sideMenuController.toggleRightMenu()
+```
+
+Hide whatever menu is shown
+
+```
+sideMenuController.hideMenu()
+```
+
+Disable gesture interaction with menu
+
+```
+sideMenuController.enableMenuPanGesture
+```
+
+## Available animation type
+
+* slideIn
+* slideOver
+* slideInRotate
+
+If you have any suggestion on other animation types, let me know or leave a pull request :)
 
 ## Author
 
