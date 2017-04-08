@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PGSideMenu'
-  s.version          = '1.0.0'
+  s.version          = '1.1.0'
   s.summary          = 'A customizable side menu for iOS'
 
 # This description is used to generate tags and improve search results.
