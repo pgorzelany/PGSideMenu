@@ -22,7 +22,6 @@ class ContentController: UIViewController {
     // MARK: Initializers
     
     init() {
-        
         super.init(nibName: "ContentController", bundle: Bundle.main)
         
     }
@@ -43,30 +42,21 @@ class ContentController: UIViewController {
     // MARK: Actions
     
     @IBAction func rightButtonTouched(_ sender: UIButton) {
-        
         if let sideMenuController = self.parent as? PGSideMenu {
-            
             sideMenuController.toggleRightMenu()
-            
         }
-        
     }
     
     @IBAction func leftButtonTouched(_ sender: UIButton) {
-        
         if let sideMenuController = self.parent as? PGSideMenu {
-            
             sideMenuController.toggleLeftMenu()
-            
         }
-        
     }
     
     
     // MARK: Support
     
     func configureController() {
-        
         if let sideMenu = self.parent as? PGSideMenu {
             sideMenu.animationType = self.currentAnimationType
         }
@@ -74,17 +64,11 @@ class ContentController: UIViewController {
     }
     
     func configureTableView() {
-        
         let nib = UINib(nibName: "AnimationTypeTableCell", bundle: Bundle.main)
         self.tableView.register(nib, forCellReuseIdentifier: "AnimationTypeTableCell")
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
-    
-    // MARK: Data
-    
-    // MARK: Appearance
-
 }
 
 extension ContentController: UITableViewDataSource, UITableViewDelegate {
@@ -94,12 +78,10 @@ extension ContentController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return PGSideMenuAnimationType.values.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimationTypeTableCell", for: indexPath) as! AnimationTypeTableCell
         let animationType = PGSideMenuAnimationType.values[indexPath.row]
         cell.configure(with: animationType, active: animationType == self.currentAnimationType)
@@ -107,7 +89,6 @@ extension ContentController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         let animationType = PGSideMenuAnimationType.values[indexPath.row]
         
         if let sideMenu = self.parent as? PGSideMenu {

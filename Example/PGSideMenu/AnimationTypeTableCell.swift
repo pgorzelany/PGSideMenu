@@ -15,26 +15,12 @@ class AnimationTypeTableCell: UITableViewCell {
     
     @IBOutlet weak var mainContainer: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    
-    // MARK: Lifecycle
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     // MARK: Configuration
     
     func configure(with animationType: PGSideMenuAnimationType, active: Bool) {
-        
         self.titleLabel.text = animationType.description
-        
-        if active {
-            self.mainContainer.backgroundColor = UIColor.groupTableViewBackground
-        } else {
-            self.mainContainer.backgroundColor = UIColor.white
-        }
+        self.accessoryType = active ? .checkmark : .none
     }
 
 }

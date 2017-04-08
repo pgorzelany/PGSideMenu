@@ -14,8 +14,6 @@ class ExampleViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    // MARK: Properties
-    
     // MARK: Initializers
     
     init() {
@@ -50,12 +48,4 @@ class ExampleViewController: UIViewController {
         
         
     }
-    
-    
-    // MARK: Support
-    
-    // MARK: Data
-    
-    // MARK: Appearance
-
 }

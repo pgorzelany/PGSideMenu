@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,48 +22,54 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDe-tI-KK5" userLabel="headerView">
+                    <rect key="frame" x="0.0" y="28" width="375" height="64"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6e-hZ-N4T">
+                            <rect key="frame" x="16" y="15.5" width="33" height="33"/>
                             <state key="normal" image="hamburger-icon"/>
                             <connections>
                                 <action selector="leftButtonTouched:" destination="-1" eventType="touchUpInside" id="5RL-8T-BD5"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyl-dg-OKZ">
+                            <rect key="frame" x="326" y="15.5" width="33" height="33"/>
                             <state key="normal" image="hamburger-icon"/>
                             <connections>
                                 <action selector="rightButtonTouched:" destination="-1" eventType="touchUpInside" id="3L3-1u-INk"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="251" text="Animation Types" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wsY-sN-QVr">
+                            <rect key="frame" x="65" y="22" width="245" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="K6e-hZ-N4T" firstAttribute="centerY" secondItem="aDe-tI-KK5" secondAttribute="centerY" id="7i6-1Z-c9N"/>
+                        <constraint firstItem="wsY-sN-QVr" firstAttribute="centerY" secondItem="aDe-tI-KK5" secondAttribute="centerY" id="Cpr-M4-4vJ"/>
                         <constraint firstItem="fyl-dg-OKZ" firstAttribute="centerY" secondItem="aDe-tI-KK5" secondAttribute="centerY" id="Jy7-yH-Esh"/>
                         <constraint firstAttribute="height" constant="64" id="LOS-Jt-z7q"/>
                         <constraint firstAttribute="trailing" secondItem="fyl-dg-OKZ" secondAttribute="trailing" constant="16" id="LP2-s0-WVG"/>
                         <constraint firstItem="K6e-hZ-N4T" firstAttribute="leading" secondItem="aDe-tI-KK5" secondAttribute="leading" constant="16" id="MKN-Xw-vpL"/>
+                        <constraint firstItem="wsY-sN-QVr" firstAttribute="leading" secondItem="K6e-hZ-N4T" secondAttribute="trailing" constant="16" id="TAo-rs-ubk"/>
+                        <constraint firstItem="fyl-dg-OKZ" firstAttribute="leading" secondItem="wsY-sN-QVr" secondAttribute="trailing" constant="16" id="ogU-ib-EYT"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose menu animation type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k61-uj-iRI">
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aOq-X0-cMw">
+                    <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="aDe-tI-KK5" firstAttribute="leading" secondItem="2di-ac-dzr" secondAttribute="leading" id="4yQ-nt-ZmH"/>
-                <constraint firstItem="aOq-X0-cMw" firstAttribute="top" secondItem="k61-uj-iRI" secondAttribute="bottom" constant="32" id="KHJ-xU-jYG"/>
-                <constraint firstItem="aDe-tI-KK5" firstAttribute="top" secondItem="2di-ac-dzr" secondAttribute="topMargin" id="KhV-eU-1lX"/>
+                <constraint firstItem="aDe-tI-KK5" firstAttribute="top" secondItem="2di-ac-dzr" secondAttribute="topMargin" constant="20" id="KhV-eU-1lX"/>
                 <constraint firstAttribute="trailing" secondItem="aDe-tI-KK5" secondAttribute="trailing" id="NMz-Ix-QI1"/>
-                <constraint firstItem="k61-uj-iRI" firstAttribute="top" secondItem="aDe-tI-KK5" secondAttribute="bottom" constant="8" id="flb-eu-epc"/>
-                <constraint firstItem="k61-uj-iRI" firstAttribute="centerX" secondItem="2di-ac-dzr" secondAttribute="centerX" id="iBS-Cz-yZ8"/>
                 <constraint firstAttribute="trailing" secondItem="aOq-X0-cMw" secondAttribute="trailing" id="lW6-sy-jtc"/>
                 <constraint firstItem="aOq-X0-cMw" firstAttribute="leading" secondItem="2di-ac-dzr" secondAttribute="leading" id="nIh-od-bXJ"/>
+                <constraint firstItem="aOq-X0-cMw" firstAttribute="top" secondItem="aDe-tI-KK5" secondAttribute="bottom" constant="8" id="rZE-Gl-mgm"/>
                 <constraint firstAttribute="bottom" secondItem="aOq-X0-cMw" secondAttribute="bottom" id="u57-pZ-Pjg"/>
             </constraints>
             <point key="canvasLocation" x="67.5" y="91.5"/>

@@ -13,35 +13,14 @@ class RightMenuController: UIViewController {
     // MARK: Outlets
     
     @IBOutlet weak var imageView: UIImageView!
-    
-    // MARK: Properties
-    
+
     // MARK: Initializers
     
     init() {
-        
         super.init(nibName: "RightMenuController", bundle: Bundle.main)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
-    
-    // MARK: Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-    }    
-    
-    // MARK: Support
-    
-    // MARK: Data
-    
-    // MARK: Appearance
-
-
 }
