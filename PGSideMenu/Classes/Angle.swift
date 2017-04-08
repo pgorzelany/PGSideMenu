@@ -13,13 +13,13 @@ final class Angle {
     
     static func radiansToDegrees(radians: CGFloat) -> CGFloat {
         
-        return radians * CGFloat(180) / CGFloat(M_PI)
+        return radians * CGFloat(180) / CGFloat(Double.pi)
         
     }
     
     static func degreesToRadians(degrees: CGFloat) -> CGFloat {
         
-        return degrees * CGFloat(M_PI) / CGFloat(180)
+        return degrees * CGFloat(Double.pi) / CGFloat(180)
         
     }
     
