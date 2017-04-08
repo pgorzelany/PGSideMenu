@@ -85,6 +85,7 @@ class PGSideMenuSlideInAnimator: PGSideMenuAnimationDelegate {
         guard abs(x) <= self.maxAbsoluteContentTranslation else {return}
         
         self.sideMenu.contentViewCenterConstraint.constant = x
+        self.sideMenu.addContentOverlay()
         
         if animated {
             
@@ -100,6 +101,7 @@ class PGSideMenuSlideInAnimator: PGSideMenuAnimationDelegate {
     func hideMenu(animated: Bool) {
         
         self.sideMenu.contentViewCenterConstraint.constant = 0
+        self.sideMenu.contentOverlayView.removeFromSuperview()
         
         if animated {
             
