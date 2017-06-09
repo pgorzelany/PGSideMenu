@@ -186,7 +186,7 @@ open class PGSideMenu: UIViewController {
         }
     }
     
-    func overlayTouched(_ recognizer: UITapGestureRecognizer) {
+    @objc func overlayTouched(_ recognizer: UITapGestureRecognizer) {
         self.animationDelegate.hideMenu(animated: true)
     }
     
@@ -197,7 +197,7 @@ open class PGSideMenu: UIViewController {
         }
     }
     
-    func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
+    @objc func panGestureRecognized(_ recognizer: UIPanGestureRecognizer) {
         
         self.animationDelegate.sideMenu(panGestureRecognized: recognizer)
         
