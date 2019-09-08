@@ -19,7 +19,7 @@ public enum PGSideMenuAnimationType: Int {
 extension PGSideMenuAnimationType {
     
     public static var values: [PGSideMenuAnimationType] {
-        return (0...10).flatMap(PGSideMenuAnimationType.init)
+        return (0...10).compactMap(PGSideMenuAnimationType.init)
     }
 }
 

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'PGSideMenu'
-  s.version          = '1.2.0'
+  s.version          = '1.3.0'
   s.summary          = 'A customizable side menu for iOS'
 
 # This description is used to generate tags and improve search results.
@@ -27,6 +27,7 @@ A customizable side menu for iOS projects written in Swift. Multiple menu animat
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'pgorzelany' => 'piotr.gorzelany@gmail.com' }
   s.source           = { :git => 'https://github.com/pgorzelany/PGSideMenu.git', :tag => s.version.to_s }
+  s.swift_version = '5.0'
   # s.social_media_url = 'https://twitter.com/PGorzelany'
 
   s.ios.deployment_target = '8.0'

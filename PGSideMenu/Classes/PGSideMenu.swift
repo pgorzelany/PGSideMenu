@@ -60,7 +60,7 @@ open class PGSideMenu: UIViewController {
     public var menuAnimationDuration: TimeInterval = 0.4
     
     /** Animation options for menu open animation */
-    public var menuAnimationOptions: UIViewAnimationOptions = .curveEaseOut
+    public var menuAnimationOptions: UIView.AnimationOptions = .curveEaseOut
     
     /** If this property is set to true, whenever a menu is shown a transparent overlay view is added to the content view so there is no user interaction with the content. If the user touches the content, the menu will hide and the overlay will be removed. Defaults to true */
     public var hideMenuOnContentTap: Bool = true
@@ -120,30 +120,30 @@ open class PGSideMenu: UIViewController {
     /** Sets the content controller */
     open func addContentController(_ controller: UIViewController) {
         
-        self.addChildViewController(controller)
+        self.addChild(controller)
         self.contentContainerView.addSubviewFullscreen(controller.view)
         self.contentController = controller
-        controller.didMove(toParentViewController: self)
+        controller.didMove(toParent: self)
         
     }
     
     /** Sets the left menu controller. You can retrieve this controller later using the leftMenuController property */
     open func addLeftMenuController(_ controller: UIViewController) {
         
-        self.addChildViewController(controller)
+        self.addChild(controller)
         self.leftMenuContainerView.addSubviewFullscreen(controller.view)
         self.leftMenuController = controller
-        controller.didMove(toParentViewController: self)
+        controller.didMove(toParent: self)
         
     }
     
     /** Sets the right menu controller. You can retrieve this controller later using the rightMenuController property */
     open func addRightMenuController(_ controller: UIViewController) {
         
-        self.addChildViewController(controller)
+        self.addChild(controller)
         self.rightMenuContainerView.addSubviewFullscreen(controller.view)
         self.rightMenuController = controller
-        controller.didMove(toParentViewController: self)
+        controller.didMove(toParent: self)
     }
     
     /** Open/close left menu depending on menu state. */
